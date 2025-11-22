@@ -1,0 +1,1492 @@
+{
+  "metrics": {
+    "overall_accuracy": 0.5333333333333333,
+    "correct_predictions": 80,
+    "total_predictions": 150,
+    "label_metrics": {
+      "community-alert": {
+        "true_positives": 17,
+        "false_positives": 8,
+        "true_negatives": 99,
+        "false_negatives": 26,
+        "precision": 0.68,
+        "recall": 0.3953488372093023,
+        "f1_score": 0.5,
+        "accuracy": 0.7733333333333333
+      },
+      "unverified-media": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "true_negatives": 130,
+        "false_negatives": 20,
+        "precision": 0,
+        "recall": 0.0,
+        "f1_score": 0,
+        "accuracy": 0.8666666666666667
+      },
+      "sensitive-location": {
+        "true_positives": 20,
+        "false_positives": 11,
+        "true_negatives": 99,
+        "false_negatives": 20,
+        "precision": 0.6451612903225806,
+        "recall": 0.5,
+        "f1_score": 0.5633802816901409,
+        "accuracy": 0.7933333333333333
+      }
+    },
+    "avg_processing_time_ms": 0.12706597646077475,
+    "max_processing_time_ms": 1.220703125,
+    "min_processing_time_ms": 0.08726119995117188,
+    "performance": {
+      "median_time_ms": 0.1163482666015625,
+      "std_time_ms": 0.09248572433185331,
+      "95th_percentile_ms": 0.15488862991333008,
+      "99th_percentile_ms": 0.23553609848022453
+    },
+    "category_accuracy": {
+      "Location with urgency": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Verified news": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Multi-language panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Unrelated content": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Coordinates with fear": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Sensitive location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Legitimate service": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Suspicious link panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Government source": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "total": 2
+      },
+      "Mixed language location": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Legitimate advocacy": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Specific address": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "Multi-language suspicious": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Academic content": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Pure panic": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Community service": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Time and location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified media": {
+        "accuracy": 1.0,
+        "correct": 3,
+        "total": 3
+      },
+      "Full escalation": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Unrelated": {
+        "accuracy": 1.0,
+        "correct": 3,
+        "total": 3
+      },
+      "School location": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Verified breaking news": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Generic location panic": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Community resource": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "GPS coordinates": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Unrelated business": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "total": 2
+      },
+      "Highway location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Suspicious platform": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Pure escalation": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Professional service": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Highway tracking": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Legitimate meeting": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Education": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Multi-language alert": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Mobilization": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Workplace raid": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Legal service": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Vague panic": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Government facility": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Unrelated event": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "total": 2
+      },
+      "Intersection location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified source": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Conspiracy platform": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Official event": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Russian language panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Unrelated traffic": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Hospital location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified analysis": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Secret meeting": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Geographic location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified international": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Alt platform": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Official program": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Multiple location panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Cultural event": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "total": 2
+      },
+      "Airport location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified business news": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Hindi warning": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Business location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified TV": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Telegram link": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Cultural": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Retail location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Unrelated class": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Transit location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified broadcast": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Alt platform mobilization": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Government service": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Chinese language alert": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Unrelated entertainment": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Government building": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Verified business": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Truth Social panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "University event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Highway marker": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Educational": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Church address": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Local news": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Arabic warning": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Government location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Verified exclusive": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Gab platform": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Civic activity": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Russian alert": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Border location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Academic": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Signal link": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Government meeting": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Chinese deportation": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Unrelated art": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Precise coordinates": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Entertainment": {
+        "accuracy": 1.0,
+        "correct": 4,
+        "total": 4
+      },
+      "Hindi help request": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Food event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Residential location": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Educational forum": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Bitchute panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Community event": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Arabic government warning": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Sports event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Transit with K9": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Educational opportunity": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Rumble evacuation": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Fitness class": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Russian checkpoint warning": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "School event": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Industrial location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Nonprofit event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Parler mobilization": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Weather cancellation": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Hindi temple warning": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Business opening": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Marina location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Policy discussion": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Telegram emergency": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Chinese campus alert": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Community sale": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Road exit location": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Study group": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Gettr panic": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Arabic mosque help": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Park event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Tech park location": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Online Q&A": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Truth Social crisis": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Social event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Hindi emergency": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Charity event": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Bus station": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Educational workshop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Gab arrests": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Arabic operation warning": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Shopping event": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Federal building": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Media launch": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Bitchute warning": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "Festival announcement": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "Hindi multiple warnings": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      }
+    },
+    "error_analysis": {
+      "total_errors": 70,
+      "error_rate": 0.4666666666666667,
+      "most_missed_labels": {
+        "community-alert": 26,
+        "unverified-media": 20,
+        "sensitive-location": 20
+      },
+      "most_over_applied_labels": {
+        "sensitive-location": 11,
+        "community-alert": 8
+      },
+      "sample_errors": [
+        {
+          "id": "test_3",
+          "text_snippet": "URGENT: Redada confirmada en la escuela! Share this now! t.co/abc123",
+          "expected": [
+            "sensitive-location",
+            "unverified-media",
+            "community-alert"
+          ],
+          "predicted": [
+            "community-alert"
+          ],
+          "missing_labels": [
+            "unverified-media",
+            "sensitive-location"
+          ],
+          "extra_labels": [],
+          "category": "Multi-language panic"
+        },
+        {
+          "id": "test_5",
+          "text_snippet": "Checkpoint at 40.7128, -74.0060 RIGHT NOW! They are coming!",
+          "expected": [
+            "sensitive-location",
+            "community-alert"
+          ],
+          "predicted": [
+            "sensitive-location"
+          ],
+          "missing_labels": [
+            "community-alert"
+          ],
+          "extra_labels": [],
+          "category": "Coordinates with fear"
+        },
+        {
+          "id": "test_6",
+          "text_snippet": "Border patrol activity near St. Mary's Church. Everyone needs to know!",
+          "expected": [
+            "sensitive-location",
+            "community-alert"
+          ],
+          "predicted": [
+            "sensitive-location"
+          ],
+          "missing_labels": [
+            "community-alert"
+          ],
+          "extra_labels": [],
+          "category": "Sensitive location"
+        },
+        {
+          "id": "test_8",
+          "text_snippet": "BREAKING: ICE raid happening now! Spread this message! bit.ly/warning",
+          "expected": [
+            "unverified-media",
+            "community-alert"
+          ],
+          "predicted": [
+            "community-alert"
+          ],
+          "missing_labels": [
+            "unverified-media"
+          ],
+          "extra_labels": [],
+          "category": "Suspicious link panic"
+        },
+        {
+          "id": "test_12",
+          "text_snippet": "Verified: Enforcement operation at 456 Oak Avenue apartment complex",
+          "expected": [
+            "sensitive-location"
+          ],
+          "predicted": [
+            "sensitive-location",
+            "community-alert"
+          ],
+          "missing_labels": [],
+          "extra_labels": [
+            "community-alert"
+          ],
+          "category": "Specific address"
+        },
+        {
+          "id": "test_13",
+          "text_snippet": "Please share: ICE\u6d3b\u52a8\u5728\u5510\u4eba\u8857! telegram.me/alerts",
+          "expected": [
+            "unverified-media",
+            "community-alert"
+          ],
+          "predicted": [
+            "community-alert"
+          ],
+          "missing_labels": [
+            "unverified-media"
+          ],
+          "extra_labels": [],
+          "category": "Multi-language suspicious"
+        },
+        {
+          "id": "test_16",
+          "text_snippet": "Community center offering ESL classes starting Monday",
+          "expected": [],
+          "predicted": [
+            "sensitive-location"
+          ],
+          "missing_labels": [],
+          "extra_labels": [
+            "sensitive-location"
+          ],
+          "category": "Community service"
+        },
+        {
+          "id": "test_17",
+          "text_snippet": "Checkpoint confirmed at intersection of 5th and Main, 3:00 PM today",
+          "expected": [
+            "sensitive-location"
+          ],
+          "predicted": [
+            "community-alert"
+          ],
+          "missing_labels": [
+            "sensitive-location"
+          ],
+          "extra_labels": [
+            "community-alert"
+          ],
+          "category": "Time and location"
+        },
+        {
+          "id": "test_19",
+          "text_snippet": "Redadas masivas! Mobilize now! Meet at the shelter! Signal: +1234567",
+          "expected": [
+            "sensitive-location",
+            "unverified-media",
+            "community-alert"
+          ],
+          "predicted": [
+            "sensitive-location",
+            "community-alert"
+          ],
+          "missing_labels": [
+            "unverified-media"
+          ],
+          "extra_labels": [],
+          "category": "Full escalation"
+        },
+        {
+          "id": "test_24",
+          "text_snippet": "Free citizenship test prep at library this Saturday",
+          "expected": [],
+          "predicted": [
+            "sensitive-location"
+          ],
+          "missing_labels": [],
+          "extra_labels": [
+            "sensitive-location"
+          ],
+          "category": "Community resource"
+        }
+      ]
+    }
+  },
+  "detailed_results": [
+    {
+      "id": "test_1",
+      "text": "ICE agents spotted at 123 Main Street checkpoint today. Avoid the area immediately!",
+      "expected": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "predicted": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "category": "Location with urgency",
+      "processing_time_ms": 1.220703125,
+      "correct": true
+    },
+    {
+      "id": "test_2",
+      "text": "New immigration policy announced by Reuters: https://reuters.com/immigration-reform",
+      "expected": [],
+      "predicted": [],
+      "category": "Verified news",
+      "processing_time_ms": 0.23055076599121094,
+      "correct": true
+    },
+    {
+      "id": "test_3",
+      "text": "URGENT: Redada confirmada en la escuela! Share this now! t.co/abc123",
+      "expected": [
+        "sensitive-location",
+        "unverified-media",
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Multi-language panic",
+      "processing_time_ms": 0.20241737365722656,
+      "correct": false
+    },
+    {
+      "id": "test_4",
+      "text": "Beautiful sunset at the park today #nature",
+      "expected": [],
+      "predicted": [],
+      "category": "Unrelated content",
+      "processing_time_ms": 0.11610984802246094,
+      "correct": true
+    },
+    {
+      "id": "test_5",
+      "text": "Checkpoint at 40.7128, -74.0060 RIGHT NOW! They are coming!",
+      "expected": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Coordinates with fear",
+      "processing_time_ms": 0.16069412231445312,
+      "correct": false
+    },
+    {
+      "id": "test_6",
+      "text": "Border patrol activity near St. Mary's Church. Everyone needs to know!",
+      "expected": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Sensitive location",
+      "processing_time_ms": 0.15044212341308594,
+      "correct": false
+    },
+    {
+      "id": "test_7",
+      "text": "Immigration lawyer offering free consultations this week",
+      "expected": [],
+      "predicted": [],
+      "category": "Legitimate service",
+      "processing_time_ms": 0.11515617370605469,
+      "correct": true
+    },
+    {
+      "id": "test_8",
+      "text": "BREAKING: ICE raid happening now! Spread this message! bit.ly/warning",
+      "expected": [
+        "unverified-media",
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Suspicious link panic",
+      "processing_time_ms": 0.13947486877441406,
+      "correct": false
+    },
+    {
+      "id": "test_9",
+      "text": "DHS announcement on new visa processing times https://dhs.gov/visa-updates",
+      "expected": [],
+      "predicted": [],
+      "category": "Government source",
+      "processing_time_ms": 0.14138221740722656,
+      "correct": true
+    },
+    {
+      "id": "test_10",
+      "text": "Migra en el hospital! Cuidado! Avoid Central Hospital NOW!",
+      "expected": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "predicted": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "category": "Mixed language location",
+      "processing_time_ms": 0.13065338134765625,
+      "correct": true
+    },
+    {
+      "id": "test_11",
+      "text": "Join us tomorrow at City Hall to support immigrant rights",
+      "expected": [],
+      "predicted": [],
+      "category": "Legitimate advocacy",
+      "processing_time_ms": 0.13446807861328125,
+      "correct": true
+    },
+    {
+      "id": "test_12",
+      "text": "Verified: Enforcement operation at 456 Oak Avenue apartment complex",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "category": "Specific address",
+      "processing_time_ms": 0.13256072998046875,
+      "correct": false
+    },
+    {
+      "id": "test_13",
+      "text": "Please share: ICE\u6d3b\u52a8\u5728\u5510\u4eba\u8857! telegram.me/alerts",
+      "expected": [
+        "unverified-media",
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Multi-language suspicious",
+      "processing_time_ms": 0.1430511474609375,
+      "correct": false
+    },
+    {
+      "id": "test_14",
+      "text": "New study on immigration impacts published in academic journal",
+      "expected": [],
+      "predicted": [],
+      "category": "Academic content",
+      "processing_time_ms": 0.13494491577148438,
+      "correct": true
+    },
+    {
+      "id": "test_15",
+      "text": "URGENT URGENT URGENT!!! They're HERE!!! Lock your doors!!!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Pure panic",
+      "processing_time_ms": 0.1544952392578125,
+      "correct": true
+    },
+    {
+      "id": "test_16",
+      "text": "Community center offering ESL classes starting Monday",
+      "expected": [],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Community service",
+      "processing_time_ms": 0.14638900756835938,
+      "correct": false
+    },
+    {
+      "id": "test_17",
+      "text": "Checkpoint confirmed at intersection of 5th and Main, 3:00 PM today",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Time and location",
+      "processing_time_ms": 0.14257431030273438,
+      "correct": false
+    },
+    {
+      "id": "test_18",
+      "text": "Immigration reform discussion tonight on NPR https://npr.org/live",
+      "expected": [],
+      "predicted": [],
+      "category": "Verified media",
+      "processing_time_ms": 0.12826919555664062,
+      "correct": true
+    },
+    {
+      "id": "test_19",
+      "text": "Redadas masivas! Mobilize now! Meet at the shelter! Signal: +1234567",
+      "expected": [
+        "sensitive-location",
+        "unverified-media",
+        "community-alert"
+      ],
+      "predicted": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "category": "Full escalation",
+      "processing_time_ms": 0.14591217041015625,
+      "correct": false
+    },
+    {
+      "id": "test_20",
+      "text": "Weather alert: Heavy rain expected this afternoon",
+      "expected": [],
+      "predicted": [],
+      "category": "Unrelated",
+      "processing_time_ms": 0.11396408081054688,
+      "correct": true
+    },
+    {
+      "id": "test_21",
+      "text": "ICE officers seen near Lincoln Elementary School this morning",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "School location",
+      "processing_time_ms": 0.12731552124023438,
+      "correct": true
+    },
+    {
+      "id": "test_22",
+      "text": "Breaking news from CNN on border policy https://cnn.com/breaking",
+      "expected": [],
+      "predicted": [],
+      "category": "Verified breaking news",
+      "processing_time_ms": 0.12731552124023438,
+      "correct": true
+    },
+    {
+      "id": "test_23",
+      "text": "Stay away from downtown! Confirmed raids! Share everywhere!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Generic location panic",
+      "processing_time_ms": 0.12183189392089844,
+      "correct": true
+    },
+    {
+      "id": "test_24",
+      "text": "Free citizenship test prep at library this Saturday",
+      "expected": [],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Community resource",
+      "processing_time_ms": 0.11038780212402344,
+      "correct": false
+    },
+    {
+      "id": "test_25",
+      "text": "41.8781, -87.6298 - active enforcement! Be careful!",
+      "expected": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "predicted": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "category": "GPS coordinates",
+      "processing_time_ms": 0.12803077697753906,
+      "correct": true
+    },
+    {
+      "id": "test_26",
+      "text": "New Mexican restaurant opening on Elm Street",
+      "expected": [],
+      "predicted": [],
+      "category": "Unrelated business",
+      "processing_time_ms": 0.10800361633300781,
+      "correct": true
+    },
+    {
+      "id": "test_27",
+      "text": "DHS checkpoint at Highway 101 exit 23, verified by multiple sources",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Highway location",
+      "processing_time_ms": 0.13589859008789062,
+      "correct": false
+    },
+    {
+      "id": "test_28",
+      "text": "Join our WhatsApp group for raid alerts: wa.me/alerts",
+      "expected": [
+        "unverified-media"
+      ],
+      "predicted": [],
+      "category": "Suspicious platform",
+      "processing_time_ms": 0.12946128845214844,
+      "correct": false
+    },
+    {
+      "id": "test_29",
+      "text": "Supreme Court ruling on DACA announced https://supremecourt.gov/daca",
+      "expected": [],
+      "predicted": [],
+      "category": "Government source",
+      "processing_time_ms": 0.16188621520996094,
+      "correct": true
+    },
+    {
+      "id": "test_30",
+      "text": "EVERYONE SHARE THIS NOW! ICE IS EVERYWHERE! PANIC!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Pure escalation",
+      "processing_time_ms": 0.1239776611328125,
+      "correct": true
+    },
+    {
+      "id": "test_31",
+      "text": "Immigration attorney available for consultations",
+      "expected": [],
+      "predicted": [],
+      "category": "Professional service",
+      "processing_time_ms": 0.10442733764648438,
+      "correct": true
+    },
+    {
+      "id": "test_32",
+      "text": "Deportation bus spotted heading north on I-95",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [],
+      "category": "Highway tracking",
+      "processing_time_ms": 0.13947486877441406,
+      "correct": false
+    },
+    {
+      "id": "test_33",
+      "text": "Community meeting tonight to discuss sanctuary policies",
+      "expected": [],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Legitimate meeting",
+      "processing_time_ms": 0.11420249938964844,
+      "correct": false
+    },
+    {
+      "id": "test_34",
+      "text": "789 Park Lane - ICE vehicles parked outside! Confirmed!",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "sensitive-location",
+        "community-alert"
+      ],
+      "category": "Specific address",
+      "processing_time_ms": 0.1251697540283203,
+      "correct": false
+    },
+    {
+      "id": "test_35",
+      "text": "Learn English classes at community college",
+      "expected": [],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Education",
+      "processing_time_ms": 0.10347366333007812,
+      "correct": false
+    },
+    {
+      "id": "test_36",
+      "text": "Border patrol \u064a\u062a\u0648\u0627\u062c\u062f \u0641\u064a \u0627\u0644\u0645\u0646\u0637\u0642\u0629! Spread the word!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [],
+      "category": "Multi-language alert",
+      "processing_time_ms": 0.12826919555664062,
+      "correct": false
+    },
+    {
+      "id": "test_37",
+      "text": "Fox News report on immigration https://foxnews.com/immigration",
+      "expected": [],
+      "predicted": [],
+      "category": "Verified media",
+      "processing_time_ms": 0.12278556823730469,
+      "correct": true
+    },
+    {
+      "id": "test_38",
+      "text": "Gather at City Plaza NOW! Resist! Fight back!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Mobilization",
+      "processing_time_ms": 0.11754035949707031,
+      "correct": true
+    },
+    {
+      "id": "test_39",
+      "text": "Happy birthday to our mayor!",
+      "expected": [],
+      "predicted": [],
+      "category": "Unrelated",
+      "processing_time_ms": 0.09393692016601562,
+      "correct": true
+    },
+    {
+      "id": "test_40",
+      "text": "ICE raid at workplace on Industrial Blvd, multiple arrests",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [],
+      "category": "Workplace raid",
+      "processing_time_ms": 0.11849403381347656,
+      "correct": false
+    },
+    {
+      "id": "test_41",
+      "text": "Free legal clinic for immigrants this weekend",
+      "expected": [],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Legal service",
+      "processing_time_ms": 0.10466575622558594,
+      "correct": false
+    },
+    {
+      "id": "test_42",
+      "text": "URGENT: Avoid all government buildings today!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Vague panic",
+      "processing_time_ms": 0.11229515075683594,
+      "correct": true
+    },
+    {
+      "id": "test_43",
+      "text": "BBC documentary on global migration https://bbc.com/documentary",
+      "expected": [],
+      "predicted": [],
+      "category": "Verified media",
+      "processing_time_ms": 0.11682510375976562,
+      "correct": true
+    },
+    {
+      "id": "test_44",
+      "text": "Detention center bus arriving at 200 Federal Street",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Government facility",
+      "processing_time_ms": 0.11873245239257812,
+      "correct": true
+    },
+    {
+      "id": "test_45",
+      "text": "Soccer game at the park this Sunday",
+      "expected": [],
+      "predicted": [],
+      "category": "Unrelated event",
+      "processing_time_ms": 0.102996826171875,
+      "correct": true
+    },
+    {
+      "id": "test_46",
+      "text": "Confirmed checkpoint: Main St & 1st Ave, active now!",
+      "expected": [
+        "sensitive-location"
+      ],
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Intersection location",
+      "processing_time_ms": 0.11873245239257812,
+      "correct": false
+    },
+    {
+      "id": "test_47",
+      "text": "Immigration news roundup from AP https://apnews.com/immigration",
+      "expected": [],
+      "predicted": [],
+      "category": "Verified source",
+      "processing_time_ms": 0.14066696166992188,
+      "correct": true
+    },
+    {
+      "id": "test_48",
+      "text": "They're coming for everyone! Hide! rumble.com/truth",
+      "expected": [
+        "unverified-media",
+        "community-alert"
+      ],
+      "predicted": [],
+      "category": "Conspiracy platform",
+      "processing_time_ms": 0.12230873107910156,
+      "correct": false
+    },
+    {
+      "id": "test_49",
+      "text": "Citizenship ceremony at courthouse next Friday",
+      "expected": [],
+      "predicted": [
+        "sensitive-location"
+      ],
+      "category": "Official event",
+      "processing_time_ms": 0.10538101196289062,
+      "correct": false
+    },
+    {
+      "id": "test_50",
+      "text": "Mass deportations \u043d\u0430\u0447\u0430\u043b\u0438\u0441\u044c! \u0418\u0437\u0431\u0435\u0433\u0430\u0439\u0442\u0435 \u043e\u0431\u043b\u0430\u0441\u0442\u0438!",
+      "expected": [
+        "community-alert"
+      ],
+      "predicted": [],
+      "category": "Russian language panic",
+      "processing_time_ms": 0.11563301086425781,
+      "correct": false
+    }
+  ]
+}

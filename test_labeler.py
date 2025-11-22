@@ -21,7 +21,7 @@ def main():
     client = Client()
     labeler_client = None
     client.login(USERNAME, PW)
-    did = did_from_handle(USERNAME)
+    did = client.me.did
 
     parser = argparse.ArgumentParser()
     parser.add_argument("labeler_inputs_dir", type=str)

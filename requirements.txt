@@ -1,0 +1,16 @@
+# Core dependencies
+atproto>=0.0.30
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Data processing
+python-dotenv>=0.19.0
+
+# Testing and evaluation  
+scikit-learn>=1.0.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Optional but recommended
+requests>=2.28.0
+beautifulsoup4>=4.11.0
