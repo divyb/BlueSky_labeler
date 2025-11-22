@@ -3,7 +3,7 @@
 ## CS5342 Assignment 3 - Policy Proposal Implementation
 
 ### Team Members
-- [Your Team Member Names]
+- Divya Kheraj Bhanushali (dkb86), Akshat Chugh (ac3263), Yuya Tseng (yzt2)
 - Cornell Tech, Fall 2025
 
 ---
