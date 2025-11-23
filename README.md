@@ -48,7 +48,7 @@ Layer 3: Escalation Detection
 
 ## 📊 Performance Metrics
 
-Based on testing with 150 diverse posts:
+### Iteration 1: Test Dataset (150 posts)
 
 | Metric | Value |
 |--------|-------|
@@ -56,13 +56,57 @@ Based on testing with 150 diverse posts:
 | **Average Processing Time** | 0.06 ms |
 | **95th Percentile Time** | 0.08 ms |
 
-### Per-Label Performance:
+### Per-Label Performance (Iteration 1):
 
 | Label | Precision | Recall | F1 Score |
 |-------|-----------|---------|----------|
 | `sensitive-location` | 64.52% | 50.00% | 56.34% |
 | `community-alert` | 68.00% | 39.53% | 50.00% |
 | `unverified-media` | 71.43% | 25.00% | 37.04% |
+
+### Iteration 2: Actual Posts from Bluesky (106 posts)
+
+Based on testing with 106 actual posts collected from Bluesky:
+
+| Metric | Value |
+|--------|-------|
+| **Total Posts** | 106 |
+| **Valid Posts** | 103 |
+| **Posts with Labels** | 19 (18.4%) |
+| **Posts without Labels** | 84 (81.6%) |
+| **Average Processing Time** | 0.20 ms |
+| **95th Percentile Time** | 0.30 ms |
+| **Median Processing Time** | 0.15 ms |
+
+### Label Distribution (Iteration 2):
+
+| Label | Count | Percentage |
+|-------|-------|------------|
+| `community-alert` | 16 | 15.5% |
+| `sensitive-location` | 3 | 2.9% |
+| `unverified-media` | 0 | 0.0% |
+
+### Label Rate by Category (Iteration 2):
+
+| Category | Label Rate | Posts with Labels |
+|----------|------------|-------------------|
+| News; ICE Raid Report | 100.0% | 2/2 |
+| Fear-mongering; ICE Raid Report | 100.0% | 1/1 |
+| News; Legal Case | 66.7% | 2/3 |
+| News; ICE Raid Report; Legal Case | 50.0% | 1/2 |
+| ICE Raid Report; Legal Case | 33.3% | 1/3 |
+| Legal Case | 28.6% | 2/7 |
+| News | 27.3% | 3/11 |
+| News; Political Commentary | 25.0% | 1/4 |
+| Political Commentary | 25.0% | 2/8 |
+| General ICE Content | 10.8% | 4/37 |
+
+**Key Observations:**
+- The labeler applied labels to 18.4% of actual posts, showing conservative labeling behavior
+- `community-alert` was the most frequently applied label (15.5% of posts)
+- Categories with "ICE Raid Report" had the highest label rates, indicating effective detection of location-specific threats
+- No `unverified-media` labels were applied, suggesting actual posts may not contain suspicious links or the detection threshold may need adjustment
+- Processing time remains fast (0.20 ms average), suitable for real-time moderation
 
 ---
 
