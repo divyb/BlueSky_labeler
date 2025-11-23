@@ -1,0 +1,660 @@
+{
+  "metrics": {
+    "total_posts": 106,
+    "valid_posts": 103,
+    "skipped_posts": 3,
+    "posts_with_labels": 19,
+    "posts_without_labels": 84,
+    "label_distribution": {
+      "community-alert": 16,
+      "sensitive-location": 3
+    },
+    "total_labels_applied": 19,
+    "avg_labels_per_post": 0.18446601941747573,
+    "avg_processing_time_ms": 0.18534382570137098,
+    "max_processing_time_ms": 3.255128860473633,
+    "min_processing_time_ms": 0.05412101745605469,
+    "performance": {
+      "median_time_ms": 0.13208389282226562,
+      "std_time_ms": 0.32613698638058347,
+      "95th_percentile_ms": 0.24647712707519528,
+      "99th_percentile_ms": 1.0206127166748065
+    },
+    "category_analysis": {
+      "News; Political Commentary": {
+        "total_posts": 4,
+        "posts_with_labels": 1,
+        "label_rate": 0.25,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "News; ICE Raid Report; Legal Case": {
+        "total_posts": 2,
+        "posts_with_labels": 1,
+        "label_rate": 0.5,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "General ICE Content": {
+        "total_posts": 37,
+        "posts_with_labels": 4,
+        "label_rate": 0.10810810810810811,
+        "label_distribution": {
+          "sensitive-location": 2,
+          "community-alert": 2
+        }
+      },
+      "Fear-mongering": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "News": {
+        "total_posts": 11,
+        "posts_with_labels": 3,
+        "label_rate": 0.2727272727272727,
+        "label_distribution": {
+          "community-alert": 3
+        }
+      },
+      "Political Commentary": {
+        "total_posts": 8,
+        "posts_with_labels": 2,
+        "label_rate": 0.25,
+        "label_distribution": {
+          "community-alert": 2
+        }
+      },
+      "News; Legal Case": {
+        "total_posts": 3,
+        "posts_with_labels": 2,
+        "label_rate": 0.6666666666666666,
+        "label_distribution": {
+          "community-alert": 2
+        }
+      },
+      "Legal Case": {
+        "total_posts": 7,
+        "posts_with_labels": 2,
+        "label_rate": 0.2857142857142857,
+        "label_distribution": {
+          "community-alert": 2
+        }
+      },
+      "Unknown": {
+        "total_posts": 16,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "ICE Raid Report": {
+        "total_posts": 6,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "News; ICE Raid Report": {
+        "total_posts": 2,
+        "posts_with_labels": 2,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 2
+        }
+      },
+      "News; Legal Case; Political Commentary": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "ICE Raid Report; Legal Case": {
+        "total_posts": 3,
+        "posts_with_labels": 1,
+        "label_rate": 0.3333333333333333,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Legal Case; Political Commentary": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Fear-mongering; ICE Raid Report": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      }
+    },
+    "label_combinations": {
+      "('no-labels',)": 84,
+      "('community-alert',)": 16,
+      "('sensitive-location',)": 3
+    }
+  },
+  "sample_results": [
+    {
+      "id": 1,
+      "text": "NEWSWEEK: \u201cChinese immigrant found hanging in ICE detention with his hands and feet tied behind him\u2026 Chaofeng Ge died 4 days after entering ICE custody in Pennsylvania\u2026 deaths in ICE custody have gone...",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "News; Political Commentary",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 3.255128860473633,
+      "skipped": false
+    },
+    {
+      "id": 2,
+      "text": "Keep this story in the news.\n\n\"Man Detained by ICE Found Dead, Hanging With Hands and Feet Tied\u2014Attorney\"",
+      "predicted": [],
+      "category": "News; ICE Raid Report; Legal Case",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.12755393981933594,
+      "skipped": false
+    },
+    {
+      "id": 3,
+      "text": "truthout.org/articles/ice...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.05602836608886719,
+      "skipped": false
+    },
+    {
+      "id": 4,
+      "text": "Feds now claim a \"system crash\" that happened immediately after ICE was sued is the reason why 10 days of footage from inside the Broadview Detention Center has been lost. ",
+      "predicted": [],
+      "category": "Fear-mongering",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.1506805419921875,
+      "skipped": false
+    },
+    {
+      "id": 5,
+      "text": "www.foxnews.com/politics/ice...",
+      "predicted": [],
+      "category": "News",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.06771087646484375,
+      "skipped": false
+    },
+    {
+      "id": 6,
+      "text": "NEWS: European advocates launch \"Wikipedia of ICE agents\" to expose enforcement network",
+      "predicted": [],
+      "category": "News",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.0820159912109375,
+      "skipped": false
+    },
+    {
+      "id": 7,
+      "text": "If you need ANY more reasons not to let Trump's ICE agents into your businesses, homes, or automobiles, Trump's ICE agents have been caught raping and sex trafficking children at Trump's ICE facilitie...",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Political Commentary",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.16546249389648438,
+      "skipped": false
+    },
+    {
+      "id": 8,
+      "text": "30,000 students in Charlotte walk out to protect ICE. ",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.07939338684082031,
+      "skipped": false
+    },
+    {
+      "id": 9,
+      "text": "ICE\u2019s Detention Center outside Chicago was sued on October 30 for allegedly abusing detainees. One day later, a \"system crash\" lost all video footage that could have shown how detainees were being tre...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.17881393432617188,
+      "skipped": false
+    },
+    {
+      "id": 10,
+      "text": "#BREAKING: A student intern at Rhode Island Superior Court was briefly taken into custody by ICE this afternoon before a judge intervened, 12 News has learned. Story by \n@jusolyn.bsky.social\n and \n@ti...",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "News; Legal Case",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.5972385406494141,
+      "skipped": false
+    },
+    {
+      "id": 11,
+      "text": "ICE loves to smash windows because it\u2019s Kristallnacht cosplay.",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.08416175842285156,
+      "skipped": false
+    },
+    {
+      "id": 12,
+      "text": "ESQUIRE: \u201cICE is hiring literally anybody, and it\u2019s terrifying\u2026 people who flunk the exam, criminal records\u2026 yet they\u2019re allowed to tear children from their beds at night.\u201d",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.15354156494140625,
+      "skipped": false
+    },
+    {
+      "id": 13,
+      "text": "Finn finds ice cubes fascinating",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.05412101745605469,
+      "skipped": false
+    },
+    {
+      "id": 14,
+      "text": "After more than two months with no updates, ICE has finally released new detention statistics.\n\nICE reports a total of 65,135 detainees as of Nov. 16, 2025. ",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "News",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.13971328735351562,
+      "skipped": false
+    },
+    {
+      "id": 15,
+      "text": "Shaved Ice Day\ud83c\udf67\uff087/25\uff09\n#KungFuPanda #LordShen #BossWolf #Soothsayer",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 1.0292530059814453,
+      "skipped": false
+    },
+    {
+      "id": 16,
+      "text": "gacha.o0o0.jp/gp/archives/...\n\u300e\u55ab\u8336\u5e97\u306e\u304b\u304d\u6c37\u30de\u30b9\u30b3\u30c3\u30c8\u300f\u767a\u58f2\u3002\u30ec\u30c8\u30ed\u3067\u304b\u308f\u3044\u3044\u3001\u624b\u306e\u3072\u3089\u30b5\u30a4\u30ba\u306e\u304b\u304d\u6c37\u3002\n\"Coffee Shop Shaved Ice Mascot\" released. Retro and cute palm-sized shaved ice.\n#\u30ac\u30c1\u30e3\u30dd\u30f3 #gachapon",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.17690658569335938,
+      "skipped": false
+    },
+    {
+      "id": 17,
+      "text": "gacha.o0o0.jp/gp/archives/...\n\u300e\u540d\u5e97\u304b\u304d\u6c37 \u30df\u30cb\u30c1\u30e5\u30a2\u30b3\u30ec\u30af\u30b7\u30e7\u30f3 \u7b2c2\u5f3e\u300f\u767a\u58f2\u3002\u65e5\u672c\u3067\u6709\u540d\u306a\u304a\u5e97\u306e\u3001\u500b\u6027\u8c4a\u304b\u306a\u304b\u304d\u6c37\u304c\u30df\u30cb\u30c1\u30e5\u30a2\u30d5\u30a3\u30ae\u30e5\u30a2\u306b\u306a\u3063\u3066\u767b\u5834\uff01\n\"Famous Shaved Ice Miniature Collection Vol. 2\" now on sale. Unique shaved ice from famous Japanese shops h...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.20074844360351562,
+      "skipped": false
+    },
+    {
+      "id": 18,
+      "text": "Scooter-riding US veteran describes chasing ICE agents in campaign to smash morale - Raw Story www.rawstory.com/ice-agents-2...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.11372566223144531,
+      "skipped": false
+    },
+    {
+      "id": 19,
+      "text": "\"A Chinese immigrant was found dead in U.S. Immigration and Customs Enforcement (ICE) detention, with his hands and feet tied behind him, an attorney has alleged.\"\n\nwww.newsweek.com/ice-detainee...",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "News; Legal Case",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.17023086547851562,
+      "skipped": false
+    },
+    {
+      "id": 20,
+      "text": "Three years ago this week. There was ice - and foxes! - on the river. Still waiting for the ice - and foxes! \n#mammals \ud83c\udf3f",
+      "predicted": [],
+      "category": "News",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.13208389282226562,
+      "skipped": false
+    },
+    {
+      "id": 21,
+      "text": "GET OUT ICE!\nABOLISH ICE!\n\nFederal immigration crackdown ends in Charlotte, North Carolina, sheriff says www.yahoo.com/news/article... via \n@yahoonews.com",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "News",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.12159347534179688,
+      "skipped": false
+    },
+    {
+      "id": 22,
+      "text": "NEW: a contractor is paying random people $300 to physically track immigrants for ICE. They're given addresses, vehicles, told to monitor the target. That information then goes back up to ICE. These a...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.2086162567138672,
+      "skipped": false
+    },
+    {
+      "id": 23,
+      "text": "#ffxiv \n\uce90\ubaa8\ub9c8\uc77c (ICE/HOT)\ud2f0\ub791 \ucee4\ud53c\ucfe0\ud0a4 \uba39\ub294 \ub9b0\uac00\uc774\uc544",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.06771087646484375,
+      "skipped": false
+    },
+    {
+      "id": 24,
+      "text": "Sounds like he thought he had a get out of jail free card on the underage sex charge since he was ICE  www.cbsnews.com/minnesota/ne...",
+      "predicted": [],
+      "category": "News",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.14472007751464844,
+      "skipped": false
+    },
+    {
+      "id": 25,
+      "text": "NEW: Federal prison workers are jumping ship & heading to ICE for better pay + bonuses. Already BOP lost >1400 people this year, reversing all of 2024\u2019s staffing gains. It\u2019s an unintended consequence ...",
+      "predicted": [],
+      "category": "Political Commentary",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.25010108947753906,
+      "skipped": false
+    },
+    {
+      "id": 26,
+      "text": "ICE is targeting students and their families. youtu.be/ONzFD7MtCNw?...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.09179115295410156,
+      "skipped": false
+    },
+    {
+      "id": 27,
+      "text": "Disquieting horror': NYT analyst exposes how ICE has 'shattered' lives of legal residents\n\nwww.rawstory.com/ice-26743321...",
+      "predicted": [],
+      "category": "Legal Case",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.10848045349121094,
+      "skipped": false
+    },
+    {
+      "id": 28,
+      "text": "\u201c.. After the new issuance, Oracle\u2019s outstanding debt load surpassed $100 billion, making it the most indebted big tech company with an investment-grade rating.\u201d\n\n@wsj.com\n $ORCL \nwww.wsj.com/tech/ora...",
+      "predicted": [],
+      "category": "Unknown",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.18310546875,
+      "skipped": false
+    },
+    {
+      "id": 29,
+      "text": "Elon Musk's Grokipedia cites a neo-Nazi website 42 times, researchers say www.nbcnews.com/tech/elon-mu...",
+      "predicted": [],
+      "category": "News",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.1010894775390625,
+      "skipped": false
+    },
+    {
+      "id": 30,
+      "text": "This is probably the most tone deaf question of the year from a tech exec.\n",
+      "predicted": [],
+      "category": "Unknown",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.08416175842285156,
+      "skipped": false
+    },
+    {
+      "id": 31,
+      "text": "A new report shows that more than 40% of New York City families can't afford their food costs.\n\nThe Poverty Tracker Report also shows that one in three adults in New York City doesn't have enough mone...",
+      "predicted": [],
+      "category": "News",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.18215179443359375,
+      "skipped": false
+    },
+    {
+      "id": 32,
+      "text": "Zohran Mamdani, the mayor-elect of New York City, will meet with President Trump on Friday. The stakes are high for the city.\n\nHere's what to know: nyti.ms/4iiVHNe",
+      "predicted": [],
+      "category": "Political Commentary",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.1354217529296875,
+      "skipped": false
+    },
+    {
+      "id": 33,
+      "text": "ICE operations ramping up in New York City, Donald Trump's border czar announces",
+      "predicted": [],
+      "category": "Political Commentary",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.08296966552734375,
+      "skipped": false
+    },
+    {
+      "id": 34,
+      "text": "This piece normalizes the \u201ctemperamental president\u201d and his threats to engage in extralegal punishment against New York City. \nwww.politico.com/news/2025/11...",
+      "predicted": [],
+      "category": "News; Legal Case",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.156402587890625,
+      "skipped": false
+    },
+    {
+      "id": 35,
+      "text": "Government ordered to resume deportation protection program for vulnerable immigrant youth",
+      "predicted": [],
+      "category": "Unknown",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.08034706115722656,
+      "skipped": false
+    },
+    {
+      "id": 36,
+      "text": "\ud83d\udea8A newly uncovered document flagged last week in a federal court filing threatens undocumented immigrant children in government custody with \u201cprolonged\u201d detention if they choose to exercise their lega...",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "Legal Case",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.5600452423095703,
+      "skipped": false
+    },
+    {
+      "id": 37,
+      "text": "Described as worse than prison, the conditions at the largest ICE detention facility in CA are inhumane. With the lives of detainees at stake, KVP has joined Prison Law Office, the ACLU, and the Calif...",
+      "predicted": [],
+      "category": "News",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.209808349609375,
+      "skipped": false
+    },
+    {
+      "id": 38,
+      "text": "A Chinese immigrant named\nChaofeng Ge died in ICE custody. \n\nHe was found hanging with his hands and feet tied behind him in the \u201chog tie\u201d position.\n\nDeaths within these camps continue to rise, with m...",
+      "predicted": [],
+      "category": "General ICE Content",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.2467632293701172,
+      "skipped": false
+    },
+    {
+      "id": 39,
+      "text": "A federal judge dismissed the federal government's baseless lawsuit challenging New York\u2019s Protect Our Courts Act.\n\nMy office will continue fighting to defend the dignity and rights of immigrant commu...",
+      "predicted": [],
+      "category": "Legal Case",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.17881393432617188,
+      "skipped": false
+    },
+    {
+      "id": 40,
+      "text": "Most of the other shops on Charlotte\u2019s busy immigrant-centric street have closed to prevent their staff from being targeted by ICE raids.",
+      "predicted": [],
+      "category": "ICE Raid Report",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.13327598571777344,
+      "skipped": false
+    },
+    {
+      "id": 41,
+      "text": "The US accidentally invaded Mexico on Monday, storming a beach and planting DoD \u201crestricted area\u201d signs claiming the land for \u201cthe commander,\u201d triggering a standoff w/ armed Mexican security forces, a...",
+      "predicted": [],
+      "category": "News; Political Commentary",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.2334117889404297,
+      "skipped": false
+    },
+    {
+      "id": 42,
+      "text": "DHS Secretary Kristi Noem gave her friends a $220 million government contract to make anti-immigrant ads.\n\nIt doesn't get more corrupt than this.",
+      "predicted": [],
+      "category": "Unknown",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.13303756713867188,
+      "skipped": false
+    },
+    {
+      "id": 43,
+      "text": "Federal Border Patrol agents arrested 81 people in immigrant neighborhoods across the Charlotte, North Carolina, area on Saturday. An immigrant rights group said it was the largest single-day tally fo...",
+      "predicted": [],
+      "category": "Unknown",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.20885467529296875,
+      "skipped": false
+    },
+    {
+      "id": 44,
+      "text": "Most of the other shops on Charlotte\u2019s busy immigrant-centric street have closed to prevent their staff from being targeted by ICE raids.",
+      "predicted": [],
+      "category": "ICE Raid Report",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.133514404296875,
+      "skipped": false
+    },
+    {
+      "id": 45,
+      "text": "ICE-style raids on Britain\u2019s streets: that\u2019s all Labour\u2019s brutal asylum reforms will achieve\nStella Creasy \n\nwww.theguardian.com/commentisfre...",
+      "predicted": [],
+      "category": "ICE Raid Report",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.13136863708496094,
+      "skipped": false
+    },
+    {
+      "id": 46,
+      "text": "ICE raids are rising, and Seattle says SPD cannot help. Advocates call Harrell\u2019s order mostly symbolic, so the council is pushing SPD to spell out how officers will respond, what they can refuse, and ...",
+      "predicted": [],
+      "category": "ICE Raid Report",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.20837783813476562,
+      "skipped": false
+    },
+    {
+      "id": 47,
+      "text": "Several Chicago newsrooms have been quietly collaborating to bring big ICE stories to the forefront.\n\nIn this story today, we found that feds used chemical weapons on Chicagoans at least 49 times duri...",
+      "predicted": [
+        "community-alert"
+      ],
+      "category": "News; ICE Raid Report",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.21314620971679688,
+      "skipped": false
+    },
+    {
+      "id": 48,
+      "text": "The DHS blamed immigrants for a number of problems known to be caused by outside economic factors. ",
+      "predicted": [],
+      "category": "Unknown",
+      "type": "Not ICE Related (Uncategorized)",
+      "ice_related": 0,
+      "processing_time_ms": 0.09393692016601562,
+      "skipped": false
+    },
+    {
+      "id": 49,
+      "text": "Mississippi Gov. Tate Reeves supports terrorism. Period. \n\nICE arrest U.S. citizens and legal immigrants without warrant, without evidence, without proof. Just racial profiling. They will bring violen...",
+      "predicted": [],
+      "category": "Legal Case",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.22459030151367188,
+      "skipped": false
+    },
+    {
+      "id": 50,
+      "text": "In Trump's America Immigrants are or are becoming what the Jews were in Hitler's Germany. \n\n\u2018The System Is Meant to Break You\u2019: What ICE Is Doing to People Here Legally www.nytimes.com/2025/11/21/o...",
+      "predicted": [],
+      "category": "News; Legal Case; Political Commentary",
+      "type": "ICE Related (Uncategorized)",
+      "ice_related": 1,
+      "processing_time_ms": 0.19288063049316406,
+      "skipped": false
+    }
+  ]
+}
