@@ -433,6 +433,14 @@ class EscalationScanner:
             'at risk', 'not safe', 'stay inside', 'lock doors'
         ]
         
+        # Add violent threat detection
+        self.violence_terms = [
+            'kill', 'shoot', 'execute', 'murder', 'assassinate',
+            'eliminate', 'exterminate', 'destroy', 'burn', 'bomb',
+            'attack', 'assault', 'harm', 'hurt', 'violence',
+            'death', 'die', 'dead', 'gas', 'hang', 'lynch'
+        ]
+        
     def analyze(self, text: str) -> Tuple[int, Dict]:
         """Analyze text for escalatory language"""
         score = 0
@@ -440,11 +448,19 @@ class EscalationScanner:
             'panic_phrases': [],
             'mobilization_phrases': [],
             'fear_phrases': [],
+            'violence_detected': False,
             'all_caps_words': 0,
             'exclamations': 0
         }
         
         text_lower = text.lower()
+        
+        # Check for violent threats - HIGH PRIORITY
+        for term in self.violence_terms:
+            if term in text_lower:
+                details['violence_detected'] = True
+                score += 25  # High score for violent content
+                break
         
         # Check panic phrases
         for phrase in self.panic_phrases:
