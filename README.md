@@ -49,12 +49,13 @@ We tested out labler in 3 iterations, each iterations uses differnt type of data
 The reason why we decides to use 3 different types of data is because people may spam using llm generated post to spam bluesky, we are trying to see if the labler can label these posts properly
 
 `Iteration 1 `: using just synthetic data  (210 posts)
-- data collection process : generated using LLM, such as DeepSeek
+   - data collection process : generated using LLM, such as DeepSeek
+
 `Iteration 2` : using actual post data (106 posts)
-- data collection process : we collect the posts by looking through BlueSky platform, 
+   -  data collection process : we collect the posts by looking through BlueSky platform
+
 `Iteration 3` : using both synthetic and actual post data (316 posts in total)
-- we take all the actual post from bluesky, and combined with some synthetic ones. 
-- 66.45 % sythetic, 33.55 % actual post from BlueSky
+   - we take all the actual post from bluesky, and combined with some synthetic ones.- - 66.45 % sythetic, 33.55 % actual post from BlueSky
 
 ---
 
