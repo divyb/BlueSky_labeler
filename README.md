@@ -154,6 +154,556 @@ PW = "your-app-password"
 
 ---
 
+## 👨‍💻 Developer Documentation
+
+This section provides comprehensive documentation for developers who want to use, modify, or extend the labeler codebase.
+
+### 📄 `policy_proposal_labeler.py` - Core Implementation
+
+The main labeler implementation consists of several classes working together to analyze content and apply labels.
+
+#### Class: `AutomatedLabeler`
+
+The primary class that orchestrates the labeling process.
+
+**Initialization:**
+```python
+labeler = AutomatedLabeler(client=None, input_dir=None)
+```
+
+**Parameters:**
+- `client` (optional): Authenticated Bluesky `Client` object from `atproto`. If `None`, the labeler runs in test mode.
+- `input_dir` (optional): Directory path for input files (currently unused, reserved for future features).
+
+**Key Methods:**
+
+1. **`moderate_post(url: str) -> List[str]`**
+   - Main entry point for moderation
+   - Accepts either a Bluesky post URL or raw text (for testing)
+   - Returns a list of label strings (e.g., `['sensitive-location', 'community-alert']`)
+   - Example:
+     ```python
+     labels = labeler.moderate_post("https://bsky.app/profile/user/post/123")
+     # or for testing:
+     labels = labeler.moderate_post("ICE raid at 123 Main St. RIGHT NOW!")
+     ```
+
+**Configuration Thresholds:**
+
+The labeler uses three configurable thresholds (defined in `__init__`):
+
+```python
+self.LOCATION_THRESHOLD = 15   # Minimum score for 'sensitive-location' label
+self.MEDIA_THRESHOLD = 10      # Minimum score for 'unverified-media' label  
+self.ESCALATION_THRESHOLD = 15 # Minimum score for 'community-alert' label
+```
+
+**To modify thresholds:**
+1. Edit the values in `AutomatedLabeler.__init__()` (lines 71-73)
+2. Lower values = more sensitive (more labels applied)
+3. Higher values = less sensitive (fewer labels applied)
+
+**Internal Architecture:**
+
+The labeler uses a 5-layer analysis system:
+
+1. **KeywordDetector**: Identifies immigration/enforcement keywords in multiple languages
+2. **LocationAnalyzer**: Detects addresses, coordinates, sensitive places, and temporal markers
+3. **MediaChecker**: Analyzes URLs and embeds for verification status
+4. **EscalationScanner**: Detects panic language, mobilization phrases, and violent content
+5. **LanguageProcessor**: Identifies multi-language content and evasion tactics
+
+#### Class: `KeywordDetector`
+
+Detects relevant keywords and phrases.
+
+**Customization:**
+
+To add new keywords, modify the lists in `__init__()`:
+
+```python
+# Primary English keywords (line 208)
+self.primary_terms = ['ice', 'immigration', 'raid', ...]
+
+# Spanish keywords (line 217)
+self.spanish_terms = ['redada', 'migra', ...]
+
+# Trust & Safety keywords (line 224)
+self.ts_words = ['moderate', 'moderation', ...]
+
+# Context amplifiers (line 237)
+self.amplifiers = ['confirmed', 'verified', 'breaking', ...]
+```
+
+**Scoring:**
+- Primary/Spanish terms: 10 points each
+- Amplifiers: 3 points each
+- Combination bonus: +10 if both primary terms and amplifiers present
+
+#### Class: `LocationAnalyzer`
+
+Detects location-specific information.
+
+**Customization:**
+
+1. **Sensitive Places** (line 310): Add locations that should trigger alerts
+   ```python
+   self.sensitive_places = ['school', 'church', 'hospital', ...]
+   ```
+
+2. **Address Pattern** (line 317): Regex pattern for street addresses
+   - Modify if you need to support different address formats
+
+3. **Time Patterns** (line 328): Regex patterns for temporal markers
+   - Add patterns for specific time formats you want to detect
+
+**Scoring:**
+- Addresses: 20 points each
+- Coordinates: 30 points (one-time)
+- Sensitive places: 15 points each
+- Temporal markers: 3 points each
+
+#### Class: `MediaChecker`
+
+Analyzes URLs and media embeds.
+
+**Customization:**
+
+1. **Verified Domains** (line 377): Add trusted news sources
+   ```python
+   self.verified_domains = ['reuters.com', 'apnews.com', ...]
+   ```
+
+2. **Suspicious Domains** (line 384): Add suspicious platforms
+   ```python
+   self.suspicious_domains = ['bit.ly', 'tinyurl.com', ...]
+   ```
+
+3. **T&S Domains** (line 392): Add problematic platforms
+   ```python
+   self.ts_domains = ['4chan.org', '8chan', ...]
+   ```
+
+**Scoring:**
+- T&S domains: 20 points
+- Unverified URLs: 10 points
+- Suspicious URLs: +15 points
+- Images: 5 points
+- Videos: 10 points
+
+#### Class: `EscalationScanner`
+
+Detects panic-inducing and escalatory language.
+
+**Customization:**
+
+1. **Panic Phrases** (line 464): Add phrases that indicate urgency
+   ```python
+   self.panic_phrases = ['spread this', 'share now', 'urgent', ...]
+   ```
+
+2. **Mobilization Phrases** (line 471): Add phrases that call for action
+   ```python
+   self.mobilization_phrases = ['gather at', 'meet at', 'show up', ...]
+   ```
+
+3. **Fear Phrases** (line 477): Add fear-inducing language
+   ```python
+   self.fear_phrases = ['they are coming', 'be careful', 'stay away', ...]
+   ```
+
+4. **Violence Terms** (line 484): Add violent language (high priority)
+   ```python
+   self.violence_terms = ['kill', 'shoot', 'execute', ...]
+   ```
+
+**Scoring:**
+- Violence terms: 25 points (high priority, breaks early)
+- Panic phrases: 8 points each
+- Mobilization phrases: 10 points each
+- Fear phrases: 7 points each
+- ALL CAPS words: 2 points each (max 10)
+- Exclamations: 1 point each (max 8)
+
+#### Class: `LanguageProcessor`
+
+Detects multiple languages and evasion tactics.
+
+**Customization:**
+
+Add new language patterns (line 550):
+
+```python
+self.language_patterns = {
+    'spanish': re.compile(r'[áéíóúñüÁÉÍÓÚÑÜ]'),
+    'chinese': re.compile(r'[\u4e00-\u9fff]'),
+    # Add more languages here
+    'japanese': re.compile(r'[\u3040-\u309f\u30a0-\u30ff]'),
+}
+```
+
+**Note:** Multi-language detection adds +15 to escalation score (line 173).
+
+#### Extending the Labeler
+
+**Adding a New Label:**
+
+1. Define the label constant (line 40-43):
+   ```python
+   NEW_LABEL = "new-label-name"
+   ```
+
+2. Add detection logic in `_analyze_content()` (line 140):
+   ```python
+   new_score, new_details = self.new_analyzer.analyze(text)
+   analysis['new_score'] = new_score
+   ```
+
+3. Add label determination in `_determine_labels()` (line 178):
+   ```python
+   if analysis['new_score'] >= self.NEW_THRESHOLD:
+       labels.append(NEW_LABEL)
+   ```
+
+4. Create a new analyzer class following the pattern of existing analyzers.
+
+---
+
+### 📊 CSV Data Files
+
+The project uses several CSV files for testing and data management.
+
+#### `data.csv` - Test Dataset
+
+**Purpose:** Comprehensive test dataset with expected labels for evaluation.
+
+**Schema:**
+```csv
+URL,Text,Expected_Labels,Category
+```
+
+**Columns:**
+- `URL`: Test identifier (e.g., "test_1")
+- `Text`: Post content to analyze
+- `Expected_Labels`: JSON array string of expected labels (e.g., `"['sensitive-location', 'community-alert']"`)
+- `Category`: Human-readable category description
+
+**Usage:**
+```python
+import pandas as pd
+df = pd.read_csv('data.csv')
+# Process each row
+for idx, row in df.iterrows():
+    text = row['Text']
+    expected = eval(row['Expected_Labels'])  # Convert string to list
+    labels = labeler.moderate_post(text)
+    # Compare labels with expected
+```
+
+**Adding Test Cases:**
+
+1. Open `data.csv` in a text editor or spreadsheet
+2. Add a new row with:
+   - Unique test ID in `URL` column
+   - Test text in `Text` column
+   - Expected labels as JSON array string in `Expected_Labels`
+   - Category description in `Category` column
+3. Example:
+   ```csv
+   test_151,"New test case here",['community-alert'],"Test category"
+   ```
+
+#### `data_actual_posts.csv` - Real Bluesky Posts
+
+**Purpose:** Actual posts collected from Bluesky for real-world evaluation.
+
+**Schema:**
+```csv
+id,type,category,text,url,label_ice_related
+```
+
+**Columns:**
+- `id`: Unique post identifier
+- `type`: Post type classification
+- `category`: Category tags (semicolon-separated)
+- `text`: Post content (may be truncated or require authentication)
+- `url`: Bluesky post URL
+- `label_ice_related`: Binary flag (0 or 1) indicating ICE-related content
+
+**Usage:**
+```python
+import pandas as pd
+df = pd.read_csv('data_actual_posts.csv')
+
+# Filter valid posts
+valid_posts = df[df['text'].notna() & 
+                 (df['text'] != "this post requires authentication to view.")]
+
+# Process posts
+for idx, row in valid_posts.iterrows():
+    labels = labeler.moderate_post(row['text'])
+    print(f"Post {row['id']}: {labels}")
+```
+
+**Note:** Some posts may have empty text or require authentication. The test script handles these cases automatically.
+
+#### Other CSV Files
+
+- **`synthetic_posts.csv`**: Generated test posts (if present)
+- **`test-data/input-posts-*.csv`**: Category-specific test datasets
+- **`labeler-inputs/*.csv`**: Configuration files for keywords, domains, etc.
+
+**Creating Custom Test Data:**
+
+1. Create a new CSV file with appropriate columns
+2. Follow the schema of `data.csv` or `data_actual_posts.csv`
+3. Use the test scripts with your custom file:
+   ```python
+   evaluator = ActualPostsEvaluator(labeler, 'your_custom_data.csv')
+   metrics = evaluator.run_evaluation()
+   ```
+
+---
+
+### 🧪 `test_actual_posts.py` - Testing Framework
+
+A comprehensive testing framework for evaluating the labeler on actual posts without ground truth labels.
+
+#### Class: `ActualPostsEvaluator`
+
+**Initialization:**
+```python
+from test_actual_posts import ActualPostsEvaluator
+from policy_proposal_labeler import AutomatedLabeler
+
+labeler = AutomatedLabeler()
+evaluator = ActualPostsEvaluator(labeler, 'data_actual_posts.csv')
+```
+
+**Parameters:**
+- `labeler`: An instance of `AutomatedLabeler`
+- `test_data_path`: Path to CSV file with posts to test
+
+#### Key Methods:
+
+1. **`run_evaluation() -> Dict`**
+   - Runs complete evaluation suite
+   - Returns metrics dictionary
+   - Prints comprehensive report to console
+   ```python
+   metrics = evaluator.run_evaluation()
+   ```
+
+2. **`export_results(output_path: str = "evaluation_results_actual.json")`**
+   - Exports detailed results to JSON
+   - Includes metrics and sample results
+   ```python
+   evaluator.export_results('my_results.json')
+   ```
+
+#### Metrics Generated:
+
+The evaluator calculates:
+
+- **Overall Metrics:**
+  - Total/valid/skipped posts
+  - Posts with/without labels
+  - Label distribution
+  - Processing time statistics
+
+- **Performance Analysis:**
+  - Median, mean, std dev processing times
+  - Percentiles (95th, 99th)
+
+- **Category Analysis:**
+  - Label rate by category
+  - Label distribution per category
+
+- **Label Combinations:**
+  - Most common label combinations
+  - Frequency of each combination
+
+#### Customizing the Evaluator:
+
+**Adding New Metrics:**
+
+1. Add calculation in `_calculate_metrics()`:
+   ```python
+   def _calculate_metrics(self):
+       # ... existing code ...
+       self.metrics['custom_metric'] = your_calculation()
+   ```
+
+2. Add reporting in `_generate_report()`:
+   ```python
+   def _generate_report(self):
+       # ... existing code ...
+       print(f"Custom Metric: {self.metrics['custom_metric']}")
+   ```
+
+**Filtering Posts:**
+
+Modify `_test_all_posts()` to add custom filters:
+
+```python
+def _test_all_posts(self):
+    for idx, row in self.test_data.iterrows():
+        # Add custom filter
+        if row['category'] == 'SkipThisCategory':
+            continue
+        # ... rest of method ...
+```
+
+**Custom Analysis:**
+
+Add new analysis methods following the pattern:
+
+```python
+def _analyze_custom_feature(self):
+    """Your custom analysis"""
+    valid_results = [r for r in self.results if not r.get('skipped', False)]
+    # Your analysis logic
+    self.metrics['custom_analysis'] = results
+```
+
+Then call it in `run_evaluation()`.
+
+#### Running Tests:
+
+**Command Line:**
+```bash
+python test_actual_posts.py
+```
+
+**Programmatic:**
+```python
+from test_actual_posts import main
+metrics = main()
+```
+
+**With Custom Data:**
+```python
+from test_actual_posts import ActualPostsEvaluator
+from policy_proposal_labeler import AutomatedLabeler
+
+labeler = AutomatedLabeler()
+evaluator = ActualPostsEvaluator(labeler, 'custom_data.csv')
+metrics = evaluator.run_evaluation()
+evaluator.export_results('custom_results.json')
+```
+
+#### Output Format:
+
+**Console Output:**
+- Formatted tables and statistics
+- Category breakdowns
+- Performance metrics
+
+**JSON Export:**
+```json
+{
+  "metrics": {
+    "total_posts": 106,
+    "valid_posts": 103,
+    "posts_with_labels": 19,
+    "label_distribution": {...},
+    "performance": {...},
+    "category_analysis": {...}
+  },
+  "sample_results": [...]
+}
+```
+
+---
+
+### 🔧 Common Customization Tasks
+
+#### Adjusting Sensitivity
+
+**Make labeler more sensitive (more labels):**
+```python
+# In AutomatedLabeler.__init__()
+self.LOCATION_THRESHOLD = 10   # Lower threshold
+self.MEDIA_THRESHOLD = 5
+self.ESCALATION_THRESHOLD = 10
+```
+
+**Make labeler less sensitive (fewer labels):**
+```python
+self.LOCATION_THRESHOLD = 25   # Higher threshold
+self.MEDIA_THRESHOLD = 20
+self.ESCALATION_THRESHOLD = 25
+```
+
+#### Adding Language Support
+
+1. Add keywords to `KeywordDetector`:
+   ```python
+   self.french_terms = ['raide', 'immigration', ...]
+   ```
+
+2. Add pattern to `LanguageProcessor`:
+   ```python
+   'french': re.compile(r'[àâäéèêëïîôùûüÿç]')
+   ```
+
+3. Compile pattern in `_compile_patterns()`:
+   ```python
+   french = '|'.join(re.escape(term) for term in self.french_terms)
+   self.patterns['french'] = re.compile(r'\b(' + french + r')\b', re.IGNORECASE)
+   ```
+
+#### Adding New Detection Rules
+
+1. Create a new analyzer class (or extend existing):
+   ```python
+   class CustomAnalyzer:
+       def analyze(self, text: str) -> Tuple[int, Dict]:
+           score = 0
+           details = {}
+           # Your detection logic
+           return score, details
+   ```
+
+2. Initialize in `AutomatedLabeler.__init__()`:
+   ```python
+   self.custom_analyzer = CustomAnalyzer()
+   ```
+
+3. Use in `_analyze_content()`:
+   ```python
+   custom_score, custom_details = self.custom_analyzer.analyze(text)
+   analysis['custom_score'] = custom_score
+   ```
+
+4. Apply in `_determine_labels()`:
+   ```python
+   if analysis['custom_score'] >= self.CUSTOM_THRESHOLD:
+       labels.append(CUSTOM_LABEL)
+   ```
+
+#### Debugging
+
+**Enable verbose output:**
+```python
+# Add to AutomatedLabeler.moderate_post()
+print(f"Analysis for {url}:")
+print(json.dumps(analysis, indent=2))
+print(f"Labels: {labels}")
+```
+
+**Test individual analyzers:**
+```python
+from policy_proposal_labeler import KeywordDetector
+
+detector = KeywordDetector()
+score, details = detector.analyze("ICE raid at Main St")
+print(f"Score: {score}, Details: {details}")
+```
+
+---
+
+
 ## 🧪 Testing
 
 ### Run Basic Tests
@@ -355,5 +905,7 @@ This project is submitted as part of CS5342 coursework at Cornell Tech.
 Educational use only.
 
 ---
+
+
 
 *Last Updated: November 2025*
