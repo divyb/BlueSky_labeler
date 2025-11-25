@@ -81,7 +81,7 @@ Layer 5: Language Processing
 
 ## 📊 Performance Metrics
 
-### Iteration 1: Test Dataset (150 posts)
+### Iteration 1: Synthetic Test Dataset (150 posts)
 
 | Metric | Value |
 |--------|-------|
@@ -463,49 +463,6 @@ bluesky-labeler/
 
 ---
 
-## 📝 Files to Submit
-
-1. **policy_proposal_labeler.py** - Main implementation v2.0 (✓)
-2. **data.csv** - Synthetic test dataset with 150 posts (✓)
-3. **data_actual_posts.csv** - Real Bluesky posts dataset with 106 posts (✓)
-4. **test_evaluation.py** - Testing script for synthetic data (✓)
-5. **test_actual_posts.py** - Testing script for actual posts with accuracy metrics (✓)
-6. **evaluation_results.json** - Results from synthetic data (generated)
-7. **evaluation_results_actual.json** - Results from actual posts with accuracy/precision (generated)
-8. **README.md** - Documentation (✓)
-9. **requirements.txt** - Dependencies (✓)
-10. **Two-page report** - Summary of approach and results
-11. **10-minute video** - Demonstration and analysis
-
----
-
-## 🎥 Video Presentation Topics
-
-1. **Motivation** (2 min)
-   - Immigration-related panic and misinformation
-   - Community safety vs. free speech
-
-2. **Technical Approach** (3 min)
-   - Three-layer detection system
-   - Multi-language support
-   - Evasion detection
-
-3. **Demo** (2 min)
-   - Live labeling demonstration
-   - Test results visualization
-
-4. **Evaluation** (2 min)
-   - Performance metrics
-   - Error analysis
-   - Category breakdown
-
-5. **Ethical Implications** (1 min)
-   - Potential for misuse
-   - Mitigation strategies
-   - Future safeguards
-
----
-
 ## 📚 References
 
 - [Bluesky Moderation Architecture](https://docs.bsky.app/blog/blueskys-moderation-architecture)
@@ -530,7 +487,6 @@ This project is submitted as part of CS5342 coursework at Cornell Tech.
 Educational use only.
 
 ---
-
 *Last Updated: November 25, 2025*
 
 ---
