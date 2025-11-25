@@ -40,6 +40,7 @@ except ImportError:
 LOCATION_LABEL = "sensitive-location"
 MEDIA_LABEL = "unverified-media"
 ALERT_LABEL = "community-alert"
+TS_LABEL = "t-and-s"  # Trust and Safety content label
 
 
 class AutomatedLabeler:
@@ -178,6 +179,11 @@ class AutomatedLabeler:
         """Determine which labels to apply based on analysis scores"""
         labels = []
         
+        # Check for T&S content (Trust and Safety)
+        if (analysis['details'].get('keywords', {}).get('ts_words_matches') or 
+            analysis['details'].get('media', {}).get('ts_domains')):
+            labels.append(TS_LABEL)
+        
         # Check location sensitivity
         if analysis['location_score'] >= self.LOCATION_THRESHOLD:
             labels.append(LOCATION_LABEL)
@@ -214,6 +220,19 @@ class KeywordDetector:
             'indocumentado', 'punto de control', 'operativo'
         ]
         
+        # T&S words (Trust and Safety terminology)
+        self.ts_words = [
+            'moderate', 'moderation', 'moderator', 'content moderation',
+            'trust and safety', 'community guidelines', 'terms of service',
+            'policy violation', 'harmful content', 'misinformation',
+            'disinformation', 'hate speech', 'harassment', 'abuse',
+            'spam', 'phishing', 'malware', 'doxxing', 'brigading',
+            'ban', 'suspend', 'report', 'flag', 'remove', 'delete',
+            'censor', 'censorship', 'deplatform', 'shadowban',
+            'fact-check', 'false information', 'misleading',
+            'violent content', 'graphic content', 'nsfw', 'nsfl'
+        ]
+        
         # Context amplifiers
         self.amplifiers = [
             'confirmed', 'verified', 'breaking', 'urgent', 'alert',
@@ -235,6 +254,10 @@ class KeywordDetector:
         spanish = '|'.join(re.escape(term) for term in self.spanish_terms)
         self.patterns['spanish'] = re.compile(r'\b(' + spanish + r')\b', re.IGNORECASE)
         
+        # T&S words pattern
+        ts = '|'.join(re.escape(term) for term in self.ts_words)
+        self.patterns['ts_words'] = re.compile(r'\b(' + ts + r')\b', re.IGNORECASE)
+        
         # Amplifier pattern
         amps = '|'.join(re.escape(term) for term in self.amplifiers)
         self.patterns['amplifier'] = re.compile(r'\b(' + amps + r')\b', re.IGNORECASE)
@@ -245,6 +268,7 @@ class KeywordDetector:
         details = {
             'primary_matches': [],
             'spanish_matches': [],
+            'ts_words_matches': [],
             'amplifiers': []
         }
         
@@ -259,6 +283,12 @@ class KeywordDetector:
         if spanish_matches:
             details['spanish_matches'] = spanish_matches
             score += len(spanish_matches) * 10
+            
+        # Check T&S words
+        ts_matches = self.patterns['ts_words'].findall(text)
+        if ts_matches:
+            details['ts_words_matches'] = ts_matches
+            # Don't add to main score, but flag for T&S label
             
         # Check amplifiers
         amp_matches = self.patterns['amplifier'].findall(text)
@@ -358,6 +388,16 @@ class MediaChecker:
             'truthsocial.com', 'gettr.com'
         ]
         
+        # T&S related domains (platforms with moderation concerns)
+        self.ts_domains = [
+            '4chan.org', '8chan', '8kun', 'kiwifarms',
+            'thedonald', 'voat.co', 'minds.com', 'mewe.com',
+            'dlive.tv', 'banned.video', 'infowars.com',
+            'stormfront.org', 'dailystormer', 'breitbart.com',
+            'zerohedge.com', 'naturalnews.com', 'beforeitsnews.com',
+            'worldtruthvideos.org', 'brighteon.com'
+        ]
+        
         # URL pattern
         self.url_pattern = re.compile(
             r'https?://[^\s<>"{}|\\^`\[\]]+', 
@@ -371,6 +411,7 @@ class MediaChecker:
             'urls': [],
             'unverified_urls': [],
             'suspicious_urls': [],
+            'ts_domains': [],
             'has_images': False,
             'has_videos': False
         }
@@ -385,7 +426,13 @@ class MediaChecker:
             # Check if verified
             is_verified = any(domain in url_lower for domain in self.verified_domains)
             
-            if not is_verified:
+            # Check for T&S domains
+            is_ts_domain = any(domain in url_lower for domain in self.ts_domains)
+            if is_ts_domain:
+                details['ts_domains'].append(url)
+                score += 20  # High score for problematic domains
+            
+            if not is_verified and not is_ts_domain:
                 details['unverified_urls'].append(url)
                 score += 10
                 
