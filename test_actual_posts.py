@@ -11,10 +11,15 @@ import sys
 import pandas as pd
 import numpy as np
 from collections import Counter, defaultdict
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 # Import the labeler
 from policy_proposal_labeler import AutomatedLabeler
+
+# Label constants
+LOCATION_LABEL = "sensitive-location"
+MEDIA_LABEL = "unverified-media"
+ALERT_LABEL = "community-alert"
 
 class ActualPostsEvaluator:
     """Evaluator for actual posts without expected labels"""
@@ -45,6 +50,12 @@ class ActualPostsEvaluator:
         
         # Calculate metrics
         self._calculate_metrics()
+        
+        # Calculate accuracy and precision metrics
+        self._calculate_accuracy_precision()
+        
+        # Calculate per-label metrics
+        self._calculate_per_label_metrics()
         
         # Performance analysis
         self._analyze_performance()
@@ -144,6 +155,85 @@ class ActualPostsEvaluator:
             'min_processing_time_ms': min(r['processing_time_ms'] for r in valid_results)
         }
     
+    def _calculate_accuracy_precision(self):
+        """
+        Calculate accuracy and precision using label_ice_related as ground truth.
+        """
+        valid_results = [r for r in self.results if not r.get('skipped', False)]
+        if not valid_results:
+            return
+        
+        # Initialize counters
+        true_positives = 0
+        false_positives = 0
+        true_negatives = 0
+        false_negatives = 0
+        
+        for result in valid_results:
+            is_ice_related = result.get('ice_related', 0) == 1
+            has_labels = len(result['predicted']) > 0
+            
+            if is_ice_related and has_labels:
+                true_positives += 1
+            elif not is_ice_related and has_labels:
+                false_positives += 1
+            elif not is_ice_related and not has_labels:
+                true_negatives += 1
+            elif is_ice_related and not has_labels:
+                false_negatives += 1
+        
+        total = true_positives + false_positives + true_negatives + false_negatives
+        accuracy = (true_positives + true_negatives) / total if total > 0 else 0
+        precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) > 0 else 0
+        recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) > 0 else 0
+        f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+        specificity = true_negatives / (true_negatives + false_positives) if (true_negatives + false_positives) > 0 else 0
+        
+        self.metrics['accuracy_metrics'] = {
+            'true_positives': true_positives,
+            'false_positives': false_positives,
+            'true_negatives': true_negatives,
+            'false_negatives': false_negatives,
+            'accuracy': accuracy,
+            'precision': precision,
+            'recall': recall,
+            'f1_score': f1_score,
+            'specificity': specificity
+        }
+    
+    def _calculate_per_label_metrics(self):
+        """Calculate precision and recall for each individual label type."""
+        valid_results = [r for r in self.results if not r.get('skipped', False)]
+        if not valid_results:
+            return
+        
+        all_labels = [LOCATION_LABEL, MEDIA_LABEL, ALERT_LABEL]
+        per_label_metrics = {}
+        
+        for label in all_labels:
+            times_applied = sum(1 for r in valid_results if label in r['predicted'])
+            times_applied_to_ice = sum(1 for r in valid_results 
+                                       if label in r['predicted'] and r.get('ice_related', 0) == 1)
+            times_applied_to_non_ice = sum(1 for r in valid_results 
+                                           if label in r['predicted'] and r.get('ice_related', 0) == 0)
+            ice_related_posts = sum(1 for r in valid_results if r.get('ice_related', 0) == 1)
+            non_ice_posts = sum(1 for r in valid_results if r.get('ice_related', 0) == 0)
+            
+            label_precision = times_applied_to_ice / times_applied if times_applied > 0 else 0
+            label_recall = times_applied_to_ice / ice_related_posts if ice_related_posts > 0 else 0
+            fp_rate = times_applied_to_non_ice / non_ice_posts if non_ice_posts > 0 else 0
+            
+            per_label_metrics[label] = {
+                'times_applied': times_applied,
+                'applied_to_ice_related': times_applied_to_ice,
+                'applied_to_non_ice': times_applied_to_non_ice,
+                'precision': label_precision,
+                'recall': label_recall,
+                'false_positive_rate': fp_rate
+            }
+        
+        self.metrics['per_label_metrics'] = per_label_metrics
+    
     def _analyze_performance(self):
         """Analyze performance characteristics"""
         valid_results = [r for r in self.results if not r.get('skipped', False)]
@@ -222,11 +312,40 @@ class ActualPostsEvaluator:
         print(f"  - Average Labels per Post: {self.metrics['avg_labels_per_post']:.2f}")
         print(f"  - Average Processing Time: {self.metrics['avg_processing_time_ms']:.2f} ms")
         
+        # Accuracy and Precision metrics
+        if 'accuracy_metrics' in self.metrics:
+            am = self.metrics['accuracy_metrics']
+            print(f"\n[ACCURACY & PRECISION METRICS]")
+            print(f"  (Using 'label_ice_related' as ground truth)")
+            print(f"  ┌─────────────────────────────────────────┐")
+            print(f"  │  Overall Accuracy:    {am['accuracy']:.2%}            │")
+            print(f"  │  Precision:           {am['precision']:.2%}            │")
+            print(f"  │  Recall:              {am['recall']:.2%}            │")
+            print(f"  │  F1 Score:            {am['f1_score']:.2%}            │")
+            print(f"  │  Specificity:         {am['specificity']:.2%}            │")
+            print(f"  └─────────────────────────────────────────┘")
+            print(f"\n  Confusion Matrix:")
+            print(f"                          Predicted")
+            print(f"                      Pos        Neg")
+            print(f"  Actual  Pos (ICE)   TP={am['true_positives']:<4}    FN={am['false_negatives']:<4}")
+            print(f"          Neg         FP={am['false_positives']:<4}    TN={am['true_negatives']:<4}")
+        
+        # Per-label metrics
+        if 'per_label_metrics' in self.metrics:
+            print(f"\n[PER-LABEL PRECISION & RECALL]")
+            print(f"  {'Label':<22} {'Applied':<10} {'Precision':<12} {'Recall':<12} {'FP Rate':<10}")
+            print(f"  {'-'*22} {'-'*10} {'-'*12} {'-'*12} {'-'*10}")
+            for label, stats in self.metrics['per_label_metrics'].items():
+                print(f"  {label:<22} {stats['times_applied']:<10} {stats['precision']:.2%}        {stats['recall']:.2%}        {stats['false_positive_rate']:.2%}")
+        
         # Label distribution
         print(f"\n[LABEL DISTRIBUTION]")
-        for label, count in sorted(self.metrics['label_distribution'].items(), key=lambda x: x[1], reverse=True):
-            percentage = count / self.metrics['valid_posts'] * 100
-            print(f"  - {label}: {count} posts ({percentage:.1f}%)")
+        if self.metrics.get('label_distribution'):
+            for label, count in sorted(self.metrics['label_distribution'].items(), key=lambda x: x[1], reverse=True):
+                percentage = count / self.metrics['valid_posts'] * 100
+                print(f"  - {label}: {count} posts ({percentage:.1f}%)")
+        else:
+            print(f"  - No labels applied")
         
         # Performance analysis
         if 'performance' in self.metrics:
@@ -269,7 +388,7 @@ def main():
     labeler = AutomatedLabeler()
     
     # Initialize evaluator
-    evaluator = ActualPostsEvaluator(labeler, 'data_actual_posts.csv')
+    evaluator = ActualPostsEvaluator(labeler, 'data_actual_posts_combined_fixed.csv') # change to test different data 
     
     # Run evaluation
     metrics = evaluator.run_evaluation()

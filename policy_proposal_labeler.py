@@ -68,9 +68,10 @@ class AutomatedLabeler:
         self.language_processor = LanguageProcessor()
         
         # Configuration thresholds (adjusted for better accuracy)
-        self.LOCATION_THRESHOLD = 15  # Lower to catch more location mentions
-        self.MEDIA_THRESHOLD = 10     # Lower to catch suspicious links
-        self.ESCALATION_THRESHOLD = 15 # Lower to catch panic language
+        self.LOCATION_THRESHOLD = 12  # Lower to catch more location mentions
+        self.MEDIA_THRESHOLD = 8      # Lower to catch suspicious links
+        self.ESCALATION_THRESHOLD = 10 # Lower to catch panic language
+        self.ICE_CONTENT_THRESHOLD = 15 # Direct ICE content detection threshold
         
         # Performance tracking
         self.stats = Counter()
@@ -192,9 +193,13 @@ class AutomatedLabeler:
         if analysis['media_score'] >= self.MEDIA_THRESHOLD:
             labels.append(MEDIA_LABEL)
             
-        # Check escalation level
-        total_escalation = analysis['escalation_score'] + (analysis['keyword_score'] * 0.5)
+        # Check escalation level - increased keyword weight to 0.8
+        total_escalation = analysis['escalation_score'] + (analysis['keyword_score'] * 0.8)
         if total_escalation >= self.ESCALATION_THRESHOLD:
+            labels.append(ALERT_LABEL)
+        
+        # Direct ICE content detection - if keyword score alone is high enough, apply label
+        if analysis['keyword_score'] >= self.ICE_CONTENT_THRESHOLD and ALERT_LABEL not in labels:
             labels.append(ALERT_LABEL)
             
         return labels
@@ -204,13 +209,34 @@ class KeywordDetector:
     """Detects immigration and enforcement related keywords"""
     
     def __init__(self):
-        # Primary keywords
+        # Primary keywords - EXPANDED with terms from actual Bluesky posts
         self.primary_terms = [
             'ice', 'immigration', 'raid', 'raids', 'deportation', 
-            'detention', 'detain', 'enforcement', 'removal',
+            'detention', 'detain', 'detainee', 'detainees', 'detained',
+            'enforcement', 'removal', 'deport', 'deported',
             'border patrol', 'cbp', 'dhs', 'ins', 'uscis',
             'undocumented', 'illegal', 'checkpoint', 'sweep',
-            'round up', 'operation', 'task force'
+            'round up', 'operation', 'task force',
+            # NEW: Common terms from actual posts
+            'custody', 'arrested', 'arrest', 'arrests', 'arresting',
+            'federal agents', 'immigration agents', 'ice agents',
+            'warrantless', 'warrant', 'without warrant',
+            'immigrant', 'immigrants', 'migrant', 'migrants',
+            'abolish ice', 'ice facility', 'ice facilities',
+            'ice detention', 'ice custody', 'ice raid', 'ice raids',
+            'ice operation', 'ice operations', 'ice goons',
+            'crackdown', 'targeting', 'mass deportation', 'mass deportations'
+        ]
+        
+        # High-severity terms that strongly indicate concerning ICE content
+        self.high_severity_terms = [
+            'died in ice', 'death in ice', 'died in custody',
+            'ice raid', 'ice raids', 'raided by ice',
+            'abducted', 'kidnapped', 'missing',
+            'warrantless arrest', 'without warrant',
+            'brutal', 'abuse', 'abusing', 'violent', 'violence',
+            'terrorize', 'terrorizing', 'terror',
+            'concentration camp', 'camps'
         ]
         
         # Spanish terms
@@ -233,10 +259,13 @@ class KeywordDetector:
             'violent content', 'graphic content', 'nsfw', 'nsfl'
         ]
         
-        # Context amplifiers
+        # Context amplifiers - EXPANDED
         self.amplifiers = [
             'confirmed', 'verified', 'breaking', 'urgent', 'alert',
-            'warning', 'spotted', 'seen', 'reported', 'active'
+            'warning', 'spotted', 'seen', 'reported', 'active',
+            # NEW: News-style amplifiers
+            'new', 'just', 'update', 'happening', 'ongoing',
+            'shocking', 'horrifying', 'terrifying', 'disturbing'
         ]
         
         # Build regex patterns
@@ -249,6 +278,10 @@ class KeywordDetector:
         # Primary pattern
         primary = '|'.join(re.escape(term) for term in self.primary_terms)
         self.patterns['primary'] = re.compile(r'\b(' + primary + r')\b', re.IGNORECASE)
+        
+        # High-severity pattern (new)
+        high_sev = '|'.join(re.escape(term) for term in self.high_severity_terms)
+        self.patterns['high_severity'] = re.compile(r'\b(' + high_sev + r')\b', re.IGNORECASE)
         
         # Spanish pattern  
         spanish = '|'.join(re.escape(term) for term in self.spanish_terms)
@@ -267,6 +300,7 @@ class KeywordDetector:
         score = 0
         details = {
             'primary_matches': [],
+            'high_severity_matches': [],
             'spanish_matches': [],
             'ts_words_matches': [],
             'amplifiers': []
@@ -275,14 +309,20 @@ class KeywordDetector:
         # Check primary terms
         primary_matches = self.patterns['primary'].findall(text)
         if primary_matches:
-            details['primary_matches'] = primary_matches
-            score += len(primary_matches) * 10
+            details['primary_matches'] = list(set(primary_matches))  # Dedupe
+            score += len(set(primary_matches)) * 8  # Slightly reduced per-match, but more terms
+        
+        # Check high-severity terms (NEW - give higher score)
+        high_sev_matches = self.patterns['high_severity'].findall(text)
+        if high_sev_matches:
+            details['high_severity_matches'] = list(set(high_sev_matches))
+            score += len(set(high_sev_matches)) * 15  # High weight for severe terms
             
         # Check Spanish terms
         spanish_matches = self.patterns['spanish'].findall(text)
         if spanish_matches:
-            details['spanish_matches'] = spanish_matches
-            score += len(spanish_matches) * 10
+            details['spanish_matches'] = list(set(spanish_matches))
+            score += len(set(spanish_matches)) * 10
             
         # Check T&S words
         ts_matches = self.patterns['ts_words'].findall(text)
@@ -293,11 +333,15 @@ class KeywordDetector:
         # Check amplifiers
         amp_matches = self.patterns['amplifier'].findall(text)
         if amp_matches:
-            details['amplifiers'] = amp_matches
-            score += len(amp_matches) * 3
+            details['amplifiers'] = list(set(amp_matches))
+            score += len(set(amp_matches)) * 4  # Slightly increased
             
         # Bonus for combinations
         if primary_matches and amp_matches:
+            score += 8
+        
+        # Bonus for high-severity + any other match
+        if high_sev_matches and (primary_matches or amp_matches):
             score += 10
             
         return score, details
@@ -480,6 +524,22 @@ class EscalationScanner:
             'at risk', 'not safe', 'stay inside', 'lock doors'
         ]
         
+        # NEWS-STYLE CONCERN PHRASES (for detecting news reports about ICE)
+        self.news_concern_phrases = [
+            'died in', 'death in', 'found dead',
+            'found hanging', 'hands tied', 'feet tied',
+            'arrested', 'taken into custody', 'taken by ice',
+            'detained by ice', 'ice custody', 'ice detention',
+            'raided', 'stormed', 'broke down door',
+            'pointed gun', 'held at gunpoint', 'guns drawn',
+            'tased', 'beaten', 'abused', 'inhumane',
+            'missing', 'disappeared', 'unaccounted',
+            'without warrant', 'warrantless', 'violating',
+            'lawsuit', 'sued', 'illegal arrest',
+            'terrifying', 'horrifying', 'disturbing', 'brutal',
+            'targeting', 'crackdown', 'ramping up'
+        ]
+        
         # Add violent threat detection
         self.violence_terms = [
             'kill', 'shoot', 'execute', 'murder', 'assassinate',
@@ -495,6 +555,7 @@ class EscalationScanner:
             'panic_phrases': [],
             'mobilization_phrases': [],
             'fear_phrases': [],
+            'news_concern_phrases': [],
             'violence_detected': False,
             'all_caps_words': 0,
             'exclamations': 0
@@ -520,6 +581,12 @@ class EscalationScanner:
             if phrase in text_lower:
                 details['mobilization_phrases'].append(phrase)
                 score += 10
+        
+        # Check news-style concern phrases (for actual posts about ICE)
+        for phrase in self.news_concern_phrases:
+            if phrase in text_lower:
+                details['news_concern_phrases'].append(phrase)
+                score += 6  # Moderate score per phrase
                 
         # Check fear phrases
         for phrase in self.fear_phrases:

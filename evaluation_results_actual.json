@@ -1,100 +1,145 @@
 {
   "metrics": {
-    "total_posts": 106,
-    "valid_posts": 103,
+    "total_posts": 316,
+    "valid_posts": 313,
     "skipped_posts": 3,
-    "posts_with_labels": 19,
-    "posts_without_labels": 84,
+    "posts_with_labels": 189,
+    "posts_without_labels": 124,
     "label_distribution": {
-      "community-alert": 16,
-      "sensitive-location": 3
+      "community-alert": 167,
+      "t-and-s": 4,
+      "sensitive-location": 34
     },
-    "total_labels_applied": 19,
-    "avg_labels_per_post": 0.18446601941747573,
-    "avg_processing_time_ms": 0.18534382570137098,
-    "max_processing_time_ms": 3.255128860473633,
-    "min_processing_time_ms": 0.05412101745605469,
+    "total_labels_applied": 205,
+    "avg_labels_per_post": 0.6549520766773163,
+    "avg_processing_time_ms": 0.14513826217895118,
+    "max_processing_time_ms": 3.2520294189453125,
+    "min_processing_time_ms": 0.04887580871582031,
+    "accuracy_metrics": {
+      "true_positives": 145,
+      "false_positives": 44,
+      "true_negatives": 67,
+      "false_negatives": 57,
+      "accuracy": 0.6773162939297125,
+      "precision": 0.7671957671957672,
+      "recall": 0.7178217821782178,
+      "f1_score": 0.7416879795396418,
+      "specificity": 0.6036036036036037
+    },
+    "per_label_metrics": {
+      "sensitive-location": {
+        "times_applied": 34,
+        "applied_to_ice_related": 21,
+        "applied_to_non_ice": 13,
+        "precision": 0.6176470588235294,
+        "recall": 0.10396039603960396,
+        "false_positive_rate": 0.11711711711711711
+      },
+      "unverified-media": {
+        "times_applied": 0,
+        "applied_to_ice_related": 0,
+        "applied_to_non_ice": 0,
+        "precision": 0,
+        "recall": 0.0,
+        "false_positive_rate": 0.0
+      },
+      "community-alert": {
+        "times_applied": 167,
+        "applied_to_ice_related": 137,
+        "applied_to_non_ice": 30,
+        "precision": 0.8203592814371258,
+        "recall": 0.6782178217821783,
+        "false_positive_rate": 0.2702702702702703
+      }
+    },
     "performance": {
-      "median_time_ms": 0.13208389282226562,
-      "std_time_ms": 0.32613698638058347,
-      "95th_percentile_ms": 0.24647712707519528,
-      "99th_percentile_ms": 1.0206127166748065
+      "median_time_ms": 0.095367431640625,
+      "std_time_ms": 0.2172881365206025,
+      "95th_percentile_ms": 0.3472805023193359,
+      "99th_percentile_ms": 0.4469108581542968
     },
     "category_analysis": {
       "News; Political Commentary": {
         "total_posts": 4,
-        "posts_with_labels": 1,
-        "label_rate": 0.25,
-        "label_distribution": {
-          "community-alert": 1
-        }
-      },
-      "News; ICE Raid Report; Legal Case": {
-        "total_posts": 2,
-        "posts_with_labels": 1,
-        "label_rate": 0.5,
-        "label_distribution": {
-          "community-alert": 1
-        }
-      },
-      "General ICE Content": {
-        "total_posts": 37,
-        "posts_with_labels": 4,
-        "label_rate": 0.10810810810810811,
-        "label_distribution": {
-          "sensitive-location": 2,
-          "community-alert": 2
-        }
-      },
-      "Fear-mongering": {
-        "total_posts": 1,
-        "posts_with_labels": 0,
-        "label_rate": 0.0,
-        "label_distribution": {}
-      },
-      "News": {
-        "total_posts": 11,
         "posts_with_labels": 3,
-        "label_rate": 0.2727272727272727,
+        "label_rate": 0.75,
         "label_distribution": {
           "community-alert": 3
         }
       },
-      "Political Commentary": {
-        "total_posts": 8,
+      "News; ICE Raid Report; Legal Case": {
+        "total_posts": 2,
         "posts_with_labels": 2,
-        "label_rate": 0.25,
+        "label_rate": 1.0,
         "label_distribution": {
           "community-alert": 2
+        }
+      },
+      "General ICE Content": {
+        "total_posts": 37,
+        "posts_with_labels": 22,
+        "label_rate": 0.5945945945945946,
+        "label_distribution": {
+          "community-alert": 22,
+          "sensitive-location": 2
+        }
+      },
+      "Fear-mongering": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "News": {
+        "total_posts": 11,
+        "posts_with_labels": 7,
+        "label_rate": 0.6363636363636364,
+        "label_distribution": {
+          "community-alert": 6,
+          "t-and-s": 1
+        }
+      },
+      "Political Commentary": {
+        "total_posts": 8,
+        "posts_with_labels": 4,
+        "label_rate": 0.5,
+        "label_distribution": {
+          "community-alert": 4
         }
       },
       "News; Legal Case": {
         "total_posts": 3,
-        "posts_with_labels": 2,
-        "label_rate": 0.6666666666666666,
+        "posts_with_labels": 3,
+        "label_rate": 1.0,
         "label_distribution": {
-          "community-alert": 2
+          "community-alert": 3
         }
       },
       "Legal Case": {
         "total_posts": 7,
-        "posts_with_labels": 2,
-        "label_rate": 0.2857142857142857,
+        "posts_with_labels": 7,
+        "label_rate": 1.0,
         "label_distribution": {
-          "community-alert": 2
+          "community-alert": 7
         }
       },
       "Unknown": {
         "total_posts": 16,
-        "posts_with_labels": 0,
-        "label_rate": 0.0,
-        "label_distribution": {}
+        "posts_with_labels": 7,
+        "label_rate": 0.4375,
+        "label_distribution": {
+          "community-alert": 7
+        }
       },
       "ICE Raid Report": {
         "total_posts": 6,
-        "posts_with_labels": 0,
-        "label_rate": 0.0,
-        "label_distribution": {}
+        "posts_with_labels": 6,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 6
+        }
       },
       "News; ICE Raid Report": {
         "total_posts": 2,
@@ -106,11 +151,192 @@
       },
       "News; Legal Case; Political Commentary": {
         "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "ICE Raid Report; Legal Case": {
+        "total_posts": 3,
+        "posts_with_labels": 3,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 3
+        }
+      },
+      "Legal Case; Political Commentary": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Fear-mongering; ICE Raid Report": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Location with urgency": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Verified news": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Multi-language panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Unrelated content": {
+        "total_posts": 1,
         "posts_with_labels": 0,
         "label_rate": 0.0,
         "label_distribution": {}
       },
-      "ICE Raid Report; Legal Case": {
+      "Coordinates with fear": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Sensitive location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Legitimate service": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Suspicious link panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Government source": {
+        "total_posts": 2,
+        "posts_with_labels": 1,
+        "label_rate": 0.5,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Mixed language location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Legitimate advocacy": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Specific address": {
+        "total_posts": 2,
+        "posts_with_labels": 2,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 2,
+          "community-alert": 2
+        }
+      },
+      "Multi-language suspicious": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Academic content": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Pure panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Community service": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Time and location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Verified media": {
+        "total_posts": 3,
+        "posts_with_labels": 1,
+        "label_rate": 0.3333333333333333,
+        "label_distribution": {
+          "t-and-s": 1
+        }
+      },
+      "Full escalation": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Unrelated": {
         "total_posts": 3,
         "posts_with_labels": 1,
         "label_rate": 0.3333333333333333,
@@ -118,25 +344,857 @@
           "community-alert": 1
         }
       },
-      "Legal Case; Political Commentary": {
+      "School location": {
         "total_posts": 1,
-        "posts_with_labels": 0,
-        "label_rate": 0.0,
-        "label_distribution": {}
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
       },
-      "Fear-mongering; ICE Raid Report": {
+      "Verified breaking news": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Generic location panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Community resource": {
         "total_posts": 1,
         "posts_with_labels": 1,
         "label_rate": 1.0,
         "label_distribution": {
           "sensitive-location": 1
         }
+      },
+      "GPS coordinates": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Unrelated business": {
+        "total_posts": 2,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Highway location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Suspicious platform": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Pure escalation": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Professional service": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Highway tracking": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Legitimate meeting": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Education": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Multi-language alert": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Mobilization": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Workplace raid": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Legal service": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Vague panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Government facility": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Unrelated event": {
+        "total_posts": 2,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Intersection location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Verified source": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Conspiracy platform": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Official event": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Russian language panic": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Unrelated traffic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Hospital location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Verified analysis": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Secret meeting": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Geographic location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Verified international": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Alt platform": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Official program": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Multiple location panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Cultural event": {
+        "total_posts": 2,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Airport location": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Verified business news": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "t-and-s": 1
+        }
+      },
+      "Hindi warning": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Business location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Verified TV": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "t-and-s": 1
+        }
+      },
+      "Telegram link": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Cultural": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Retail location": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Unrelated class": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Transit location": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Verified broadcast": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Alt platform mobilization": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Government service": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Chinese language alert": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Unrelated entertainment": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Government building": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Verified business": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Truth Social panic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "University event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Highway marker": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Educational": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Church address": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Local news": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Arabic warning": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Government location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Verified exclusive": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Gab platform": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Civic activity": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Russian alert": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Border location": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Academic": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Signal link": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Government meeting": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Chinese deportation": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Unrelated art": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Precise coordinates": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Entertainment": {
+        "total_posts": 4,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Hindi help request": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Food event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Residential location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Educational forum": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Bitchute panic": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Community event": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Arabic government warning": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Sports event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Transit with K9": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Educational opportunity": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Rumble evacuation": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Fitness class": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Russian checkpoint warning": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "School event": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Industrial location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Nonprofit event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Parler mobilization": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Weather cancellation": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Hindi temple warning": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Business opening": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Marina location": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Policy discussion": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Telegram emergency": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Chinese campus alert": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Community sale": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Road exit location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Study group": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Gettr panic": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Arabic mosque help": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Park event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Tech park location": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1,
+          "community-alert": 1
+        }
+      },
+      "Online Q&A": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Truth Social crisis": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Social event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Hindi emergency": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Charity event": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Bus station": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Educational workshop": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Gab arrests": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Arabic operation warning": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Shopping event": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Federal building": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "sensitive-location": 1
+        }
+      },
+      "Media launch": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Bitchute warning": {
+        "total_posts": 1,
+        "posts_with_labels": 1,
+        "label_rate": 1.0,
+        "label_distribution": {
+          "community-alert": 1
+        }
+      },
+      "Festival announcement": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Hindi multiple warnings": {
+        "total_posts": 1,
+        "posts_with_labels": 0,
+        "label_rate": 0.0,
+        "label_distribution": {}
+      },
+      "Violent Anti-Immigrant Content": {
+        "total_posts": 29,
+        "posts_with_labels": 27,
+        "label_rate": 0.9310344827586207,
+        "label_distribution": {
+          "community-alert": 27
+        }
+      },
+      "Anti-Immigrant Content": {
+        "total_posts": 31,
+        "posts_with_labels": 16,
+        "label_rate": 0.5161290322580645,
+        "label_distribution": {
+          "community-alert": 16
+        }
       }
     },
     "label_combinations": {
-      "('no-labels',)": 84,
-      "('community-alert',)": 16,
-      "('sensitive-location',)": 3
+      "('community-alert',)": 151,
+      "('no-labels',)": 124,
+      "('sensitive-location',)": 18,
+      "('community-alert', 'sensitive-location')": 16,
+      "('t-and-s',)": 4
     }
   },
   "sample_results": [
@@ -149,17 +1207,19 @@
       "category": "News; Political Commentary",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 3.255128860473633,
+      "processing_time_ms": 3.2520294189453125,
       "skipped": false
     },
     {
       "id": 2,
       "text": "Keep this story in the news.\n\n\"Man Detained by ICE Found Dead, Hanging With Hands and Feet Tied\u2014Attorney\"",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "News; ICE Raid Report; Legal Case",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.12755393981933594,
+      "processing_time_ms": 0.17404556274414062,
       "skipped": false
     },
     {
@@ -169,17 +1229,19 @@
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.05602836608886719,
+      "processing_time_ms": 0.25725364685058594,
       "skipped": false
     },
     {
       "id": 4,
       "text": "Feds now claim a \"system crash\" that happened immediately after ICE was sued is the reason why 10 days of footage from inside the Broadview Detention Center has been lost. ",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Fear-mongering",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.1506805419921875,
+      "processing_time_ms": 0.2818107604980469,
       "skipped": false
     },
     {
@@ -189,29 +1251,29 @@
       "category": "News",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.06771087646484375,
+      "processing_time_ms": 0.06890296936035156,
       "skipped": false
     },
     {
       "id": 6,
       "text": "NEWS: European advocates launch \"Wikipedia of ICE agents\" to expose enforcement network",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "News",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.0820159912109375,
+      "processing_time_ms": 0.12803077697753906,
       "skipped": false
     },
     {
       "id": 7,
       "text": "If you need ANY more reasons not to let Trump's ICE agents into your businesses, homes, or automobiles, Trump's ICE agents have been caught raping and sex trafficking children at Trump's ICE facilitie...",
-      "predicted": [
-        "community-alert"
-      ],
+      "predicted": [],
       "category": "Political Commentary",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.16546249389648438,
+      "processing_time_ms": 0.3390312194824219,
       "skipped": false
     },
     {
@@ -221,17 +1283,19 @@
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.07939338684082031,
+      "processing_time_ms": 0.11396408081054688,
       "skipped": false
     },
     {
       "id": 9,
       "text": "ICE\u2019s Detention Center outside Chicago was sued on October 30 for allegedly abusing detainees. One day later, a \"system crash\" lost all video footage that could have shown how detainees were being tre...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.17881393432617188,
+      "processing_time_ms": 0.2701282501220703,
       "skipped": false
     },
     {
@@ -243,7 +1307,7 @@
       "category": "News; Legal Case",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.5972385406494141,
+      "processing_time_ms": 0.3440380096435547,
       "skipped": false
     },
     {
@@ -253,17 +1317,19 @@
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.08416175842285156,
+      "processing_time_ms": 0.09584426879882812,
       "skipped": false
     },
     {
       "id": 12,
       "text": "ESQUIRE: \u201cICE is hiring literally anybody, and it\u2019s terrifying\u2026 people who flunk the exam, criminal records\u2026 yet they\u2019re allowed to tear children from their beds at night.\u201d",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.15354156494140625,
+      "processing_time_ms": 0.22602081298828125,
       "skipped": false
     },
     {
@@ -273,7 +1339,7 @@
       "category": "General ICE Content",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.05412101745605469,
+      "processing_time_ms": 0.06508827209472656,
       "skipped": false
     },
     {
@@ -285,7 +1351,7 @@
       "category": "News",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.13971328735351562,
+      "processing_time_ms": 0.33402442932128906,
       "skipped": false
     },
     {
@@ -295,37 +1361,43 @@
       "category": "General ICE Content",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 1.0292530059814453,
+      "processing_time_ms": 1.6829967498779297,
       "skipped": false
     },
     {
       "id": 16,
       "text": "gacha.o0o0.jp/gp/archives/...\n\u300e\u55ab\u8336\u5e97\u306e\u304b\u304d\u6c37\u30de\u30b9\u30b3\u30c3\u30c8\u300f\u767a\u58f2\u3002\u30ec\u30c8\u30ed\u3067\u304b\u308f\u3044\u3044\u3001\u624b\u306e\u3072\u3089\u30b5\u30a4\u30ba\u306e\u304b\u304d\u6c37\u3002\n\"Coffee Shop Shaved Ice Mascot\" released. Retro and cute palm-sized shaved ice.\n#\u30ac\u30c1\u30e3\u30dd\u30f3 #gachapon",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.17690658569335938,
+      "processing_time_ms": 0.3609657287597656,
       "skipped": false
     },
     {
       "id": 17,
       "text": "gacha.o0o0.jp/gp/archives/...\n\u300e\u540d\u5e97\u304b\u304d\u6c37 \u30df\u30cb\u30c1\u30e5\u30a2\u30b3\u30ec\u30af\u30b7\u30e7\u30f3 \u7b2c2\u5f3e\u300f\u767a\u58f2\u3002\u65e5\u672c\u3067\u6709\u540d\u306a\u304a\u5e97\u306e\u3001\u500b\u6027\u8c4a\u304b\u306a\u304b\u304d\u6c37\u304c\u30df\u30cb\u30c1\u30e5\u30a2\u30d5\u30a3\u30ae\u30e5\u30a2\u306b\u306a\u3063\u3066\u767b\u5834\uff01\n\"Famous Shaved Ice Miniature Collection Vol. 2\" now on sale. Unique shaved ice from famous Japanese shops h...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.20074844360351562,
+      "processing_time_ms": 0.2970695495605469,
       "skipped": false
     },
     {
       "id": 18,
       "text": "Scooter-riding US veteran describes chasing ICE agents in campaign to smash morale - Raw Story www.rawstory.com/ice-agents-2...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.11372566223144531,
+      "processing_time_ms": 0.1957416534423828,
       "skipped": false
     },
     {
@@ -337,7 +1409,7 @@
       "category": "News; Legal Case",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.17023086547851562,
+      "processing_time_ms": 0.27489662170410156,
       "skipped": false
     },
     {
@@ -347,7 +1419,7 @@
       "category": "News",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.13208389282226562,
+      "processing_time_ms": 0.21314620971679688,
       "skipped": false
     },
     {
@@ -359,17 +1431,19 @@
       "category": "News",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.12159347534179688,
+      "processing_time_ms": 0.2071857452392578,
       "skipped": false
     },
     {
       "id": 22,
       "text": "NEW: a contractor is paying random people $300 to physically track immigrants for ICE. They're given addresses, vehicles, told to monitor the target. That information then goes back up to ICE. These a...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.2086162567138672,
+      "processing_time_ms": 0.4029273986816406,
       "skipped": false
     },
     {
@@ -379,7 +1453,7 @@
       "category": "General ICE Content",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.06771087646484375,
+      "processing_time_ms": 0.07987022399902344,
       "skipped": false
     },
     {
@@ -389,37 +1463,43 @@
       "category": "News",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.14472007751464844,
+      "processing_time_ms": 0.23102760314941406,
       "skipped": false
     },
     {
       "id": 25,
       "text": "NEW: Federal prison workers are jumping ship & heading to ICE for better pay + bonuses. Already BOP lost >1400 people this year, reversing all of 2024\u2019s staffing gains. It\u2019s an unintended consequence ...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Political Commentary",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.25010108947753906,
+      "processing_time_ms": 0.3819465637207031,
       "skipped": false
     },
     {
       "id": 26,
       "text": "ICE is targeting students and their families. youtu.be/ONzFD7MtCNw?...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.09179115295410156,
+      "processing_time_ms": 0.11301040649414062,
       "skipped": false
     },
     {
       "id": 27,
       "text": "Disquieting horror': NYT analyst exposes how ICE has 'shattered' lives of legal residents\n\nwww.rawstory.com/ice-26743321...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Legal Case",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.10848045349121094,
+      "processing_time_ms": 0.1881122589111328,
       "skipped": false
     },
     {
@@ -429,7 +1509,7 @@
       "category": "Unknown",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.18310546875,
+      "processing_time_ms": 0.26106834411621094,
       "skipped": false
     },
     {
@@ -439,7 +1519,7 @@
       "category": "News",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.1010894775390625,
+      "processing_time_ms": 0.16427040100097656,
       "skipped": false
     },
     {
@@ -449,17 +1529,19 @@
       "category": "Unknown",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.08416175842285156,
+      "processing_time_ms": 0.13113021850585938,
       "skipped": false
     },
     {
       "id": 31,
       "text": "A new report shows that more than 40% of New York City families can't afford their food costs.\n\nThe Poverty Tracker Report also shows that one in three adults in New York City doesn't have enough mone...",
-      "predicted": [],
+      "predicted": [
+        "t-and-s"
+      ],
       "category": "News",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.18215179443359375,
+      "processing_time_ms": 0.3578662872314453,
       "skipped": false
     },
     {
@@ -469,37 +1551,43 @@
       "category": "Political Commentary",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.1354217529296875,
+      "processing_time_ms": 0.25177001953125,
       "skipped": false
     },
     {
       "id": 33,
       "text": "ICE operations ramping up in New York City, Donald Trump's border czar announces",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Political Commentary",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.08296966552734375,
+      "processing_time_ms": 0.13399124145507812,
       "skipped": false
     },
     {
       "id": 34,
       "text": "This piece normalizes the \u201ctemperamental president\u201d and his threats to engage in extralegal punishment against New York City. \nwww.politico.com/news/2025/11...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "News; Legal Case",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.156402587890625,
+      "processing_time_ms": 0.2067089080810547,
       "skipped": false
     },
     {
       "id": 35,
       "text": "Government ordered to resume deportation protection program for vulnerable immigrant youth",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Unknown",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.08034706115722656,
+      "processing_time_ms": 0.11205673217773438,
       "skipped": false
     },
     {
@@ -511,107 +1599,127 @@
       "category": "Legal Case",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.5600452423095703,
+      "processing_time_ms": 0.3457069396972656,
       "skipped": false
     },
     {
       "id": 37,
       "text": "Described as worse than prison, the conditions at the largest ICE detention facility in CA are inhumane. With the lives of detainees at stake, KVP has joined Prison Law Office, the ACLU, and the Calif...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "News",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.209808349609375,
+      "processing_time_ms": 0.3979206085205078,
       "skipped": false
     },
     {
       "id": 38,
       "text": "A Chinese immigrant named\nChaofeng Ge died in ICE custody. \n\nHe was found hanging with his hands and feet tied behind him in the \u201chog tie\u201d position.\n\nDeaths within these camps continue to rise, with m...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "General ICE Content",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.2467632293701172,
+      "processing_time_ms": 0.3662109375,
       "skipped": false
     },
     {
       "id": 39,
       "text": "A federal judge dismissed the federal government's baseless lawsuit challenging New York\u2019s Protect Our Courts Act.\n\nMy office will continue fighting to defend the dignity and rights of immigrant commu...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Legal Case",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.17881393432617188,
+      "processing_time_ms": 0.26702880859375,
       "skipped": false
     },
     {
       "id": 40,
       "text": "Most of the other shops on Charlotte\u2019s busy immigrant-centric street have closed to prevent their staff from being targeted by ICE raids.",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "ICE Raid Report",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.13327598571777344,
+      "processing_time_ms": 0.18310546875,
       "skipped": false
     },
     {
       "id": 41,
       "text": "The US accidentally invaded Mexico on Monday, storming a beach and planting DoD \u201crestricted area\u201d signs claiming the land for \u201cthe commander,\u201d triggering a standoff w/ armed Mexican security forces, a...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "News; Political Commentary",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.2334117889404297,
+      "processing_time_ms": 0.34928321838378906,
       "skipped": false
     },
     {
       "id": 42,
       "text": "DHS Secretary Kristi Noem gave her friends a $220 million government contract to make anti-immigrant ads.\n\nIt doesn't get more corrupt than this.",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Unknown",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.13303756713867188,
+      "processing_time_ms": 0.21696090698242188,
       "skipped": false
     },
     {
       "id": 43,
       "text": "Federal Border Patrol agents arrested 81 people in immigrant neighborhoods across the Charlotte, North Carolina, area on Saturday. An immigrant rights group said it was the largest single-day tally fo...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Unknown",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.20885467529296875,
+      "processing_time_ms": 0.31113624572753906,
       "skipped": false
     },
     {
       "id": 44,
       "text": "Most of the other shops on Charlotte\u2019s busy immigrant-centric street have closed to prevent their staff from being targeted by ICE raids.",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "ICE Raid Report",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.133514404296875,
+      "processing_time_ms": 0.1900196075439453,
       "skipped": false
     },
     {
       "id": 45,
       "text": "ICE-style raids on Britain\u2019s streets: that\u2019s all Labour\u2019s brutal asylum reforms will achieve\nStella Creasy \n\nwww.theguardian.com/commentisfre...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "ICE Raid Report",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.13136863708496094,
+      "processing_time_ms": 0.17833709716796875,
       "skipped": false
     },
     {
       "id": 46,
       "text": "ICE raids are rising, and Seattle says SPD cannot help. Advocates call Harrell\u2019s order mostly symbolic, so the council is pushing SPD to spell out how officers will respond, what they can refuse, and ...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "ICE Raid Report",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.20837783813476562,
+      "processing_time_ms": 0.30517578125,
       "skipped": false
     },
     {
@@ -623,37 +1731,43 @@
       "category": "News; ICE Raid Report",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.21314620971679688,
+      "processing_time_ms": 0.30112266540527344,
       "skipped": false
     },
     {
       "id": 48,
       "text": "The DHS blamed immigrants for a number of problems known to be caused by outside economic factors. ",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Unknown",
       "type": "Not ICE Related (Uncategorized)",
       "ice_related": 0,
-      "processing_time_ms": 0.09393692016601562,
+      "processing_time_ms": 0.15306472778320312,
       "skipped": false
     },
     {
       "id": 49,
       "text": "Mississippi Gov. Tate Reeves supports terrorism. Period. \n\nICE arrest U.S. citizens and legal immigrants without warrant, without evidence, without proof. Just racial profiling. They will bring violen...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "Legal Case",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.22459030151367188,
+      "processing_time_ms": 0.4241466522216797,
       "skipped": false
     },
     {
       "id": 50,
       "text": "In Trump's America Immigrants are or are becoming what the Jews were in Hitler's Germany. \n\n\u2018The System Is Meant to Break You\u2019: What ICE Is Doing to People Here Legally www.nytimes.com/2025/11/21/o...",
-      "predicted": [],
+      "predicted": [
+        "community-alert"
+      ],
       "category": "News; Legal Case; Political Commentary",
       "type": "ICE Related (Uncategorized)",
       "ice_related": 1,
-      "processing_time_ms": 0.19288063049316406,
+      "processing_time_ms": 0.2853870391845703,
       "skipped": false
     }
   ]
