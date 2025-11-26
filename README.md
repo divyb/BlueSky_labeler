@@ -43,6 +43,59 @@ Layer 3: Escalation Detection
 ├── Fear-mongering Detection
 └── Multi-language Evasion Detection
 ```
+
+---
+
+## 📐 Scoring Model
+
+Each post is analyzed by multiple detection layers. Each layer generates a numeric score based on matched patterns. The final label decision is made by comparing combined scores against thresholds.
+
+### Keyword Score Calculation
+- Each primary ICE term matched (ice, raid, detained, custody, etc.): **+8 points**
+- Each high-severity term matched (died in custody, brutal, warrantless): **+15 points**
+- Each Spanish term matched (redada, migra, deportación): **+10 points**
+- Each amplifier matched (breaking, urgent, confirmed): **+4 points**
+- Bonus if primary terms + amplifiers found together: **+8 points**
+- Bonus if high-severity + any other match: **+10 points**
+
+### Location Score Calculation
+- Each street address detected: **+20 points**
+- GPS coordinates detected: **+30 points**
+- Each sensitive place mentioned (school, church, hospital): **+15 points**
+- Each temporal marker (now, today, urgent): **+3 points**
+
+### Media Score Calculation
+- Each unverified URL: **+10 points**
+- Each suspicious platform URL (Telegram, Parler, etc.): **+15 points**
+
+### Escalation Score Calculation
+- Each panic phrase (spread this, share now): **+8 points**
+- Each mobilization phrase (gather at, resist): **+10 points**
+- Each fear phrase (they are coming, stay away): **+7 points**
+- Each news concern phrase (taken into custody, found dead): **+6 points**
+- Violence terms detected: **+25 points**
+- ALL CAPS words: **+2 points each** (max 10)
+- Excessive exclamation marks (3+): **up to +8 points**
+
+### Final Label Decision
+
+**For `community-alert` label:**
+```
+Total = escalation_score + (keyword_score × 0.8)
+If Total ≥ 10 → apply label
+OR if keyword_score alone ≥ 15 → apply label (direct detection fallback)
+```
+
+**For `sensitive-location` label:**
+```
+If location_score ≥ 12 → apply label
+```
+
+**For `unverified-media` label:**
+```
+If media_score ≥ 8 → apply label
+```
+
 ---
 ## Data 
 We tested out labler in 3 iterations, each iterations uses differnt type of data. 
